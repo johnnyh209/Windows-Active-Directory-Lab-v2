@@ -45,7 +45,7 @@ Now that you finally have Windows Server installed, there are a few more tasks t
 We will now promote this Windows Server to be the Domain Controller of our lab environment.
 
 1. Back on Server Manager, click on **Manage** then click on **Add Roles and Features**.
-2. In the **Before yyou begin** page, click **Next**.
+2. In the **Before you begin** page, click **Next**.
 3. Select **Role-based or feature-based installation**.
 4. Select **Select a server from the server pool** and select the server of your choosing. At this stage, we only have one, which is this Windows Server we just installed.
 5. Select **Active Directory Domain Services**. This will open a new window; simply press **Add Features** button. Then click **Next**
@@ -60,3 +60,24 @@ We will now promote this Windows Server to be the Domain Controller of our lab e
 14. Nothing needs to be done on **Paths** page. Click **Next**.
 15. Review everything and then install. Note that the server will reboot afterwards.
 16. After restarting, you will now see your domain name before your account's name like so:
+
+# DHCP Setup
+
+The final thing we need to configure on our Domain Controller is a DHCP server.
+
+1. Back on Server Manager, click on **Manage** then click on **Add Roles and Features**.
+2. Run through the **Add Roles and Features** wizard. When you get the **Select server roles** page, selet **DHCP Server**.
+3. Once DHCP is installed, click on the notification flag symbol and then click on **Complete DHCP configuration**.
+4. In the **Description** page, click **Next**.
+5. In the **Authorization** page, select the user credential that you will use to authorize the creation/configuration of this DHCP server.
+6. Once done, open the DHCP console. You can do so by clicking on the Search bar and typing in DHCP.
+7. In the left pane, expand your server and you should see IPv4 and IPv6. Right-click on IPv4 and select **New Scope**.
+8. Provide a name (and description if you want) for this new scope.
+9. Fill out the start and end IP address for the IP Address range. This means when this scope is active, this DHCP server will provide other nodes in the LAN an IP address within this range. The range will match that of the IP address I assigned to the LAN Adapter on my pfSense VM.
+10. Add any IP addresses you want to be excluded so that the DHCP server will not assign those. I have included the IP addresses of the LAN adapter on my pfSense VM and the IP address of my Domain Controller.
+11. Set the lease duration of an IP address. For example, if the duration is 8 days, a device is assigned an IP address and that assignment should last 8 days before the device has to renew or give up the IP address.
+12. Choose yes to configure the DHCP options now.
+13. For the default gateway, we want to provide it the IP address of our pfSense router/firewall.
+14. For the DNS server, makes sure the information automatically filled out points to your domain controller.
+15. You can leave the WINS Server page blank.
+16. Select to make scope active now.
