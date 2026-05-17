@@ -40,4 +40,23 @@ Now that you finally have Windows Server installed, there are a few more tasks t
 6. Next, if the timezone is not correct, go ahead and adjust it.
 7. Next, set the hostname to your liking. I am changing mine to DC01. This will require you to restart the system.
 
+# Domain Controller
 
+We will now promote this Windows Server to be the Domain Controller of our lab environment.
+
+1. Back on Server Manager, click on **Manage** then click on **Add Roles and Features**.
+2. In the **Before yyou begin** page, click **Next**.
+3. Select **Role-based or feature-based installation**.
+4. Select **Select a server from the server pool** and select the server of your choosing. At this stage, we only have one, which is this Windows Server we just installed.
+5. Select **Active Directory Domain Services**. This will open a new window; simply press **Add Features** button. Then click **Next**
+6. In the **Select features** page, you can click **Next**.
+7. In the **Active Directory Domain Services** page, click **Next**.
+8. Check the box to restart the system if required, and then install. Wait until installation completes.
+9. After installation is completed, click on the notification flag symbol and then click on **Promote this server to a domain controller**.
+10. Since there doesn't exist a forest yet, select **Add a new forest** and provide a root domain name.
+11. Set a password for Directory Services Restore Mode.
+12. For **DNS Options** page, we can click **Next**.
+13. The NetBIOS domain name will automatically fill in. Click **Next**.
+14. Nothing needs to be done on **Paths** page. Click **Next**.
+15. Review everything and then install. Note that the server will reboot afterwards.
+16. After restarting, you will now see your domain name before your account's name like so:
