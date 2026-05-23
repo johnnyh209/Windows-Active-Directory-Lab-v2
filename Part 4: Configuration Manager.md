@@ -1,3 +1,29 @@
+# Preparing Active Directory for SCCM
+
+We need to first create the System Management container in our Active Directory, which is used by SCCM to store configuraiton data that clients use to identify management points, software distribution points, and site boundaries.
+
+1. To do this, on your domain controller, open **ADSI Edit**.
+2. Right-click ADSI Edit on the left pane and click on **Connect to...**.
+3. In the Conenction Settings window, keep everything as is and click the **OK** button.
+4. On the left pane of ADSI Edit, expand each subdirectory until you see **CN=System**. Right-Click it, and then click on New > Object.
+5. In the Create Object that opens as a result, select **Container** and click **Next**.
+6. In the **Value:** box, enter in **System Management**.
+7. Click **Finish**.
+8. Refresh ADSI Edit and you should now see a the System Management container under **CN=System**.
+
+# Assigning Permissions to the System Management Container
+
+1. In ADSI Edit, right-click on **CN=System Management**, then click on **Properties**.
+2. Click on the **Security** tab and click on the **Add...** button.
+3. Click on **Object Types...** button, and select **Computers**.
+4. Type in the name of the system your SCCM server will be installed on and click **Check Names** button. It should find your device easily.
+5. Click on **Advanced** button.
+6. Select your server, and click **Edit**.
+7. In the **Applies to:** drop-down box, select **This object and all descendant objects**.
+8. Check the **Full control** box, and everything else should be selected as well.
+9. Click **Apply** and **OK**.
+10. Click **Apply** and **OK** again.
+
 # Disk setup for Configuration Manager
 
 1. In my member server VM, named Server2025, I created 7 virtual disks
