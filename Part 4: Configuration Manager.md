@@ -54,3 +54,33 @@ To install all 3 components, simply run the following command in PowerShell:
 ```
 Install-WindowsFeature Web-Static-Content,Web-Default-Doc,Web-Dir-Browsing,Web-Http-Errors,Web-Http-Redirect,Web-Net-Ext,Web-ISAPI-Ext,Web-Http-Logging,Web-Log-Libraries,Web-Request-Monitor,Web-Http-Tracing,Web-Windows-Auth,Web-Filtering,Web-Stat-Compression,Web-Mgmt-Tools,Web-Mgmt-Compat,Web-Metabase,Web-WMI,BITS,RDC
 ```
+
+# Installing SQL Server
+
+We will be using the Standard Developer edition of SQL Server 2025 as it's perfet for a non-production environment. Grab SQL Server [here](https://www.microsoft.com/en-us/evalcenter/download-microsoft-endpoint-configuration-manager).
+
+1. Launch your SQL Server installer, and select **Custom**.
+2. Specify the location that you want the media to be installed onto. Then wait for the install to finish.
+3. Click on **Installation** on the left pane, and then click on **New SQL Server standalone installation or add features to an existing installation**.
+4. Specify your free edition (if testing in a lab), or enter in billing information for the subscription option, or a product key if you have one.
+5. Read through and accept license agreement to continue.
+6. If you want, check the box to **Use Microsoft Update to check for updates**.
+7. Here, you will see a warning for Windows Firewall. We will need to ensure the necessary rules are in place to allow traffic through. The required ports are the following: 1433, 1434, 4022, and 135.
+8. Let's set up some firewall rules to allow traffic inbound through those ports. Open up PowerShell and run the following commands:
+```
+New-NetFirewallRule -DisplayName “SQL Server” -Direction Inbound –Protocol TCP –LocalPort 1433 -Action allow
+New-NetFirewallRule -DisplayName “SQL Admin Connection” -Direction Inbound –Protocol TCP –LocalPort 1434 -Action allow
+New-NetFirewallRule -DisplayName “SQL Database Management” -Direction Inbound –Protocol UDP –LocalPort 1434 -Action allow
+New-NetFirewallRule -DisplayName “SQL Service Broker” -Direction Inbound –Protocol TCP –LocalPort 4022 -Action allow
+New-NetFirewallRule -DisplayName “SQL Debugger/RPC” -Direction Inbound –Protocol TCP –LocalPort 135 -Action allow
+```
+9. You can enable Azure Extension. Since we won't be touching Azure, I leave it disabled.
+10. In Feature Selection, I am only enabled **Database Engine Services**.
+11. I will leave the instance name as default. Change it to your liking.
+12. Next, we will designate a service account for SQL Server Agent and SQL Server Database Engine. I have created an admin account for this, named SCCMAdmin. Make sure that your account you are using has been added to the Domain Admin and Administrators group. I also enabled Server Agent to have Automatic startup.
+13. In **Database Engine Configuration**, I will be keeping Authentication Mode as **Windows authentication mode**, and adding admin accounts I want to have unrestricted access to SQL Server. 
+For Data Directories, we will keep the directories as default.
+What we are changing is TempDB. We are changing the Autogrowth for both TempDB data files and log files from 64 MB to 256 MB, and changing the directory to our H:\ drive that we aptly named TempDB. 
+15. Install and wait for the process to complete.
+16. 
+
