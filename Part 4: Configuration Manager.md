@@ -109,7 +109,13 @@ We now need to install SQL Server Management Studio (SSMS), which allows us to v
 1. Run the SSMS installer, which will open up Visual Studio Instller. Click **Continue**.
 2. Choose your optional components, and click **Install**.
 3. Once installation is complete, restart your system.
-
+4. After restarting, launch SQL Server Management Studio. Enter in your Server Name, Authentication information, and connect.
+5. Under Object Explorer, right-click on your server, and click **Properties**.
+6. Under **Memory**, set the minimum and maximum memory. It is recommended to set at least 8 GB minimum, and 90% of your system's total memory as the maximum. Then reboot once more.
+7. After restarting, install the latest cumulative update for SQL Server.
+8. Select the features you want installed. I left everything selected.
+9. Wait for the check to finish, and continue.
+10. Proceed with the update and wait for it to finish installing.
 
 
 
