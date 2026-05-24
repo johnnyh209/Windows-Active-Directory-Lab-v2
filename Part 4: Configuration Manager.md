@@ -82,5 +82,34 @@ New-NetFirewallRule -DisplayName “SQL Debugger/RPC” -Direction Inbound –Pr
 For Data Directories, we will keep the directories as default.
 What we are changing is TempDB. We are changing the Autogrowth for both TempDB data files and log files from 64 MB to 256 MB, and changing the directory to our H:\ drive that we aptly named TempDB. 
 15. Install and wait for the process to complete.
-16. 
+
+# Power BI Report Server
+
+With SQL Server 2025, Power BI Report Server (PBRS) replaces SQL Sever Reporting Services (SSRS). You can Grab PBRS [here](https://www.microsoft.com/en-us/download/details.aspx?id=105943&culture=en-us&country=us).
+
+1. Run the PBRS installer and select **Instal Power BI Report Server**.
+2. Choose your edition, or enter in a product key if you have one.
+3. Read and accept the license agreement to continue.
+4. Since we already installed the Database Engine earlier (when we installed SQL Server), simply click **Next**.
+5. Choose your installation path. I will be leaving it default.
+6. Install and wait for completion. Then click on **Configure report server**.
+7. Specify the Server Name and Report Server Instance.
+8. Under **Service Account**, specify an account to run report server service.
+9. Under **Database**, click on **Change Database**.
+Then, select **Choose an existing report server database**.
+Leave Server Name as is (which should already have been prefilled with your server's hostname), and choose an Authentication Type (whether you want the already filled in Current User, or a SQL Server Account
+Leave the **Database** page as is, and continue on.
+11. adsf
+12. asdf
+
+# Installing SQL Server Management Studio
+
+We now need to install SQL Server Management Studio (SSMS), which allows us to view our SQL database(s). You can find SSMS [here](https://learn.microsoft.com/en-us/ssms/install/install).
+
+1. Run the SSMS installer, which will open up Visual Studio Instller. Click **Continue**.
+2. Choose your optional components, and click **Install**.
+3. Once installation is complete, restart your system.
+
+
+
 
