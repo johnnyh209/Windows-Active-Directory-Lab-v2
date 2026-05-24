@@ -172,3 +172,12 @@ For this lab, we will be using the Technical Preview version of Configuration Ma
 5. You will see CMD open up briefly and close. To verify that the .exe worked successfully, go to C:\ and find the **ExtADSch.log**.
 6. Open the log file and find the entry that states that the Active Directory schema has been extended successfully.
 
+# Create SCCM Databases
+
+Let's create our SCCM databases before we finally install Configuration Manager.
+
+1. Back in SQL Server Management Studio, right-click Databases and click on **New Database**.
+2. Enter in a database name and database owner.
+3. From the initial 1 database filea and 1 database log file created automatically, I added 3 more database files. This means I have 1 database log, and 4 database files in total. For each of the database files, I set their initial size to 256 MB (for a small lab like mine, this should be fine), and the log file to 512 MB. For the autogrowth size, the 4 database files are set to 128 MB and the log file to 256 MB.
+4. Remember at the beginning I also create separate drives for the SQL Server MDF database files and 1 for the log files. As such, I set the path for the 4 database files to point to my MDF drive (F:\Database in my case) and my log file to my LDF drive (G:\Database in my case).
+5. Finally, set the Recovery Model to **Simple**.
