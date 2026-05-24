@@ -161,5 +161,14 @@ Get the Windows ADK and Windows PE add-on installers [here](https://learn.micros
 8. Read through and accept the license agreement to continue.
 9. There is only one feature to select to install, which is WinPE.
 
+# Extend Active Directory Schema
 
+For this lab, we will be using the Technical Preview version of Configuration Manager. Download the installer [here](https://www.microsoft.com/en-in/evalcenter/evaluate-microsoft-endpoint-configuration-manager-technical-preview). While this will be used to install Configuration Manager, we also need an .exe in here that will extend our Active Directory Schema.
+
+1. Run **ConfigMgr_TechPreview2411.exe**. Designate where to extract the files to. Then press Extract.
+2. Open up the folder that has been extracted. Then navigate to SMSSETUP\BIN\X64. Look for **extadsch.exe**.
+3. While holding Shift key, right-click on **extadsch.exe** and click on **Rune as different user**.
+4. Enter in the credentials of an account with the necessary rights to extend an AD schema.
+5. You will see CMD open up briefly and close. To verify that the .exe worked successfully, go to C:\ and find the **ExtADSch.log**.
+6. Open the log file and find the entry that states that the Active Directory schema has been extended successfully.
 
