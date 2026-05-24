@@ -147,6 +147,19 @@ Next, we will install WSUS. WSUS will allow us to centrally manage and deploy so
 24. Click OK to readd SUSDB.
 25. Start WSUS Service and WsusPool.
 
+# Installing Windows ADK
+
+Get the Windows ADK and Windows PE add-on installers [here](https://learn.microsoft.com/en-us/windows-hardware/get-started/adk-install).
+
+1. Run the **adksetup.exe**. We wil leave the default install path.
+2. Select Yes or No to allow Microsoft to collect insights.
+3. Read through and accept the license agreement to continue.
+4. Select the features needed, and Install.
+5. Once that is complete, run **adkwinpesetup.exe**.
+6. Leave the location specification as it is and click Next.
+7. Select Yes or No to allow Microsoft to collect insights.
+8. Read through and accept the license agreement to continue.
+9. There is only one feature to select to install, which is WinPE.
 
 
 
