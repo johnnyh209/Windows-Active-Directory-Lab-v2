@@ -117,5 +117,36 @@ We now need to install SQL Server Management Studio (SSMS), which allows us to v
 9. Wait for the check to finish, and continue.
 10. Proceed with the update and wait for it to finish installing.
 
+# Installing WSUS
+
+Next, we will install WSUS. WSUS will allow us to centrally manage and deploy software updates.
+
+1. On our SCCM Server, Server2025, we go to Add Roles and Features.
+2. Selet **Role-Based or feature-based installation**.
+3. Our server should be selected automatically, as it is the only server listed. Click Next.
+4. Select Windows Server Update Services.
+5. There is nothing that needs selecting in **Select features**. Continue on.
+6. In **Select role services** for WSUS, uncheck WID Connectivity and check **SQL Server Connectivity**.
+7. Set the location you want to store updates in. I have selected my SCCM_ContentLibrary drive (K:\), directly to a folder I created named WSUS.
+8. Specify your database server.
+9. Run the install and wait for completion.
+10. Finally, run the Post-Installation tasks.
+11. According to Microsoft, it is good practice to set the WSUSPool Queue Length to 2000 and increase WsusPool Private Memory limit by 4 times. This is done in IIS. So open IIS Manager.
+12. On the left pane, navigate to your server > Application Pool. Then right-click **WsusPool** and click on **Advanced Settings**.
+13. Change the **Queue Length** from the 1000 default value to 2000.
+14. Change the **Private Memory Limit** to 4x what is set by default.
+15. Because I created a separate drive for WSUS Database, I will have to change the default database path that has been set. First, stop WsusPool in IIS Manager and Wsus Service in Services.
+16. Open SQL Management Studio. Navigate to [Server] > Databases > SUSDB. Right-Click SUSDB and go to Properties.
+17. Under Files, you should see the default Path. Copy that path and navigate to it in File Explorer.
+18. Now that we have the path opened in File Explorer, go and right-click on SUSDB, click on Tasks > Detach.
+19. Select Drop Connections and then click OK.
+20. Back in File Explorer, in the path we navigated to, Move the **SUSDB.mdf** and **SUSDB_log.ldf** files to our WSUS drive, which is my I:\ drive named SQL_WSUS_Database.
+21. Back in SQL Manager, right-click Databases and click Attach.
+22. Click on the **Add...** button.
+23. Navigate to our I:\Database file path, select SUSDB.mdf, and click OK.
+24. Click OK to readd SUSDB.
+25. Start WSUS Service and WsusPool.
+
+
 
 
