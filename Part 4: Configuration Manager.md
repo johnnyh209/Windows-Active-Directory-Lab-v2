@@ -256,10 +256,20 @@ Client Push is the server-side installation method used to push the SCCM client 
 
 Boundaries are defined network locations, and boundary groups tell clients which site/distribution point to get content from.
 
-1. In Configuration Manager, Go to Administration > Hierarchy Configuration > Boundaries. Right-click Bounadaries and click on **Create Boundary**.
+1. In Configuration Manager, go to Administration > Hierarchy Configuration > Boundaries. Right-click Bounadaries and click on **Create Boundary**.
 2. Enter in a description to your liking. I opted to use IP address range, and gave it my lab's IP range. Click Apply, then Ok to create the boundary.
 3. On the left pane, right-click on **Boundary Groups** and click on **Create Boundary Group**.
 4. Provide a name, and a description (if you want).
 5. On the **References** tab, add our SCCM system to the **Site system servers** field.
 6. We can also create another boundary group for site assignment to offer more granularity in the setup. Create a new Boundary Group and give it a name that reflects that this boundary group is for. Then, in the Boundaries field, add in the IP range Boundary we created earlier.
 7. In the **References** tab, check the box **Use this boundary group for site assignment**. Then, select the site you want to assign the IP range to.
+
+# Post-Installation: Configure Client Discovery
+
+Configuring this will allow SCCM to discover clients in our site.
+
+1. In Configuration Manager, go to Administration > Hierarchy Configuration > Discovery Methods. You will see see various methods listed. We will setup **Active Direcotry System Discovery**, so double-click to open its properties.
+2. In the General tab, check the box to **Enable Active Directory System Discovery**.
+3. Then, click on the yellow star and select where you want to discover your systems/clients at (whether you want to discover everything from within the domain, or from a specific OU). I will select my Workstation OU.
+4. In the Polling Schedule tab, set how often you want Config Manager to poll your domain for computer data. I am setting it to poll everyday at 12 AM.
+5. We can leave the remaining tabs as default.
