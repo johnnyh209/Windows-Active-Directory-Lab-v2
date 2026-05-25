@@ -251,3 +251,15 @@ Client Push is the server-side installation method used to push the SCCM client 
 11. Leave **Predefined Rule** as is, which by default, should have everything selected.
 12. In **Action** page, we will select **Allow the connection** and then click **Finish**.
 13. Then create a new Inbound Rule again. We will select **Predefined:** again and select **File and Printer Sharing** from the drop-down menu.
+
+# Post Installation: Boundary + Boundary Groups
+
+Boundaries are defined network locations, and boundary groups tell clients which site/distribution point to get content from.
+
+1. In Configuration Manager, Go to Administration > Hierarchy Configuration > Boundaries. Right-click Bounadaries and click on **Create Boundary**.
+2. Enter in a description to your liking. I opted to use IP address range, and gave it my lab's IP range. Click Apply, then Ok to create the boundary.
+3. On the left pane, right-click on **Boundary Groups** and click on **Create Boundary Group**.
+4. Provide a name, and a description (if you want).
+5. On the **References** tab, add our SCCM system to the **Site system servers** field.
+6. We can also create another boundary group for site assignment to offer more granularity in the setup. Create a new Boundary Group and give it a name that reflects that this boundary group is for. Then, in the Boundaries field, add in the IP range Boundary we created earlier.
+7. In the **References** tab, check the box **Use this boundary group for site assignment**. Then, select the site you want to assign the IP range to.
