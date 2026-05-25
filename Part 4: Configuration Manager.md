@@ -165,9 +165,9 @@ Get the Windows ADK and Windows PE add-on installers [here](https://learn.micros
 
 For this lab, we will be using the Technical Preview version of Configuration Manager. Download the installer [here](https://www.microsoft.com/en-in/evalcenter/evaluate-microsoft-endpoint-configuration-manager-technical-preview). While this will be used to install Configuration Manager, we also need an .exe in here that will extend our Active Directory Schema.
 
-1. Run **ConfigMgr_TechPreview2411.exe**. Designate where to extract the files to. Then press Extract.
+1. Run **ConfigMgr_2509.exe**. Designate where to extract the files to. Then press Extract.
 2. Open up the folder that has been extracted. Then navigate to SMSSETUP\BIN\X64. Look for **extadsch.exe**.
-3. While holding Shift key, right-click on **extadsch.exe** and click on **Rune as different user**.
+3. While holding Shift key, right-click on **extadsch.exe** and click on **Run as different user**.
 4. Enter in the credentials of an account with the necessary rights to extend an AD schema.
 5. You will see CMD open up briefly and close. To verify that the .exe worked successfully, go to C:\ and find the **ExtADSch.log**.
 6. Open the log file and find the entry that states that the Active Directory schema has been extended successfully.
@@ -181,3 +181,26 @@ Let's create our SCCM databases before we finally install Configuration Manager.
 3. From the initial 1 database filea and 1 database log file created automatically, I added 3 more database files. This means I have 1 database log, and 4 database files in total. For each of the database files, I set their initial size to 256 MB (for a small lab like mine, this should be fine), and the log file to 512 MB. For the autogrowth size, the 4 database files are set to 128 MB and the log file to 256 MB.
 4. Remember at the beginning I also create separate drives for the SQL Server MDF database files and 1 for the log files. As such, I set the path for the 4 database files to point to my MDF drive (F:\Database in my case) and my log file to my LDF drive (G:\Database in my case).
 5. Finally, set the Recovery Model to **Simple**.
+
+# Installing Config Manager
+
+1. Return to the folder that we extracted from **ConfigMgr_2509.exe**. Within that folder, run **splash.hta**.
+2. Click **Install**.
+3. Click **Next**.
+4. For our small lab environment, we choose **Install a Configuration Manager Primary site**.
+5. If you have a product key, enter in your product key. Otherwise, select **Install the evaluation edition of this product**.
+6. Read and accept the license terms to continue.
+7. Since I don't already have existing prerequisite files, select to download required files. Wait for the download to finish.
+8. Select your language.
+9. Select client language.
+10. Enter a site code, site name, and intallation path. I am setting my installation path to my E:\ that I created to house Config Manager.
+11. Select to **Install the primary site as a stand-alone site**.
+12. Your SQL Server name and Database name should already be prefilled. Since I don't have a custom instance name, I am leaving it blank. Keep Service Broker Port as is: 4022.
+13. Enter in a path for your SQL Server data file and log file. Since I did create separate drives for them at the beginning, I will be using those drives.
+14. We will install SMS provider on this machine, so nothing needs to be changed.
+15. Select **Configure the comunication method on each site system role**.
+16. We will install both management point and distribution point on this server.
+17. On **Diagnostic and Usage Data**, read and hit next.
+18. We will have the installer setup a Service Point Connection.
+19. Review summary and go through Prerequisite Check.
+20. Once the check has completed successfully, click on **Begin Install**.
