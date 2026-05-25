@@ -234,3 +234,10 @@ Initiate and wait for the wizard to finish configuring the reporting database.
 19. For **Cloud Protection Service**, I will choose **Basic membership**.
 20. Install and wait for completion.
 
+# Post Installation: Client Push
+
+Client Push is the server-side installation method used to push the SCCM client onto target machines.
+
+1. Back in Configuration Manager, navigate to Administration > Site Configuration > Sites. Right-click your site, and click Client Installation Settings > Client Push Installation.
+2. Go to the **Accounts** tab, and click on the yellow star and click on **New Account**.
+3. For this, I created a separate domain account, aptly named sccmpush, to be used solely for pushing the Config Manager client. Then hit Apply.
