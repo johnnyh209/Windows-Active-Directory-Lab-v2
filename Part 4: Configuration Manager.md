@@ -93,14 +93,7 @@ With SQL Server 2025, Power BI Report Server (PBRS) replaces SQL Sever Reporting
 4. Since we already installed the Database Engine earlier (when we installed SQL Server), simply click **Next**.
 5. Choose your installation path. I will be leaving it default.
 6. Install and wait for completion. Then click on **Configure report server**.
-7. Specify the Server Name and Report Server Instance.
-8. Under **Service Account**, specify an account to run report server service.
-9. Under **Database**, click on **Change Database**.
-Then, select **Choose an existing report server database**.
-Leave Server Name as is (which should already have been prefilled with your server's hostname), and choose an Authentication Type (whether you want the already filled in Current User, or a SQL Server Account
-Leave the **Database** page as is, and continue on.
-11. adsf
-12. asdf
+7. Specify the Server Name and Report Server Instance, and connect to it. We will leave PBRS as it for now.
 
 # Installing SQL Server Management Studio
 
@@ -204,3 +197,40 @@ Let's create our SCCM databases before we finally install Configuration Manager.
 18. We will have the installer setup a Service Point Connection.
 19. Review summary and go through Prerequisite Check.
 20. Once the check has completed successfully, click on **Begin Install**.
+
+# Post Installation: PBRS
+
+With Configuration Manager now installed, there's some post-installation tasks that need to be done. First will be with PowerBI Report Services.
+
+1. Under **Service Account**, specify an account to run report server service.
+2. Under **Web Service URL**, I left everything as is and clicked on **Apply**. This should have created a Report Server Web Service URL.
+3. Under **Database**, click on **Change Database**.
+Then, select **Create a new report server database**.
+The required information should be autofilled. Click on **Test Connection** to make sure connection is successful.
+Leave the **Database** page as is, and continue on.
+For **Credentials**, we will leave as Service Credentials.
+Initiate and wait for the wizard to finish configuring the reporting database.
+5. In **Web Portal URL**, click **Apply** button to create a URL that can be used to access the web portal.
+
+# Post Installation: Configuration Manager Site System Roles
+
+1. In Microsoft Configuration Manager, navigate through Administration > Site Configuration > Servers and Site System Roles.
+2. Right-Click on your listed server and click on **Add Site System Roles**.
+3. I don't have a proxy set up, so I will be leaving the **Proxy** page blank.
+5. In **System Role Selection**, I selected the following roles: Endpoint Protection point, Fallback status point, Reporting services point, and Software update point.
+6. In **Software Update Point**, we will leave the WSUS port numbers as 8530 and 8531.
+7. **Proxy and Account Settings** page can be left blank, especially since WSUS is on the same system as well.
+8. In **Synchronization Source** page, leave everything as default.
+9. In **Synchronization Schedule** page, I will choose to enable synchronization on a schedule, every 1 day.
+10. I will be leaving everything in **Supersedence Rules** as default.
+11. In **WSUS Maintenance**, I will check to **Decline expired updates in WSUS according to supersedence rules** and **Remove obsolete updates from the WSUS database**.
+12. I will leave **Maximum Run Time** page as default.
+13. In **Update Files**, I will opt for **Download full fiels for all approved updates**.
+14. In **Classifications**, I chose the following: Crticial Updates, Definition Updates, Security Updates, Service Packs, Update Rollups, Updates, and Upgrades.
+15. In **Products**, I select Windows 7.
+16. In **Languages**, choose whatever languages you desire. I am leaving it only on English.
+17. I will leave **Fallback Status Point** as is.
+18. In **Reporting services point**, click on the **Verify** button to verify the site database server connection, and set an account that the reporting services will use to connect to the Configuration Manager site database.
+19. For **Cloud Protection Service**, I will choose **Basic membership**.
+20. Install and wait for completion.
+
