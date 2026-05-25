@@ -264,7 +264,7 @@ Boundaries are defined network locations, and boundary groups tell clients which
 6. We can also create another boundary group for site assignment to offer more granularity in the setup. Create a new Boundary Group and give it a name that reflects that this boundary group is for. Then, in the Boundaries field, add in the IP range Boundary we created earlier.
 7. In the **References** tab, check the box **Use this boundary group for site assignment**. Then, select the site you want to assign the IP range to.
 
-# Post-Installation: Configure Client Discovery
+# Post Installation: Configure Client Discovery
 
 Configuring this will allow SCCM to discover clients in our site.
 
@@ -273,3 +273,16 @@ Configuring this will allow SCCM to discover clients in our site.
 3. Then, click on the yellow star and select where you want to discover your systems/clients at (whether you want to discover everything from within the domain, or from a specific OU). I will select my Workstation OU.
 4. In the Polling Schedule tab, set how often you want Config Manager to poll your domain for computer data. I am setting it to poll everyday at 12 AM.
 5. We can leave the remaining tabs as default.
+
+# Post Installation: Client Settings
+
+1. In Configuration Manager, go to Administration > Client Settings. Then in the ribbon on top, click on **Create Custom Client Device Settings**.
+2. In the Create Custom Client Device Settings wizard, I added the following: Client Policy, Computer Agent, Endpoint Protection, Hardware Inventory, Software Center, and Software Updates.
+3. In Client Policy, I changed the polling interval from 60 minutes to 15 minutes, and kept other settings as default.
+4. For Computer Agent, I added an organization name to be displayed in Software Center and changed the various reminder intervals as follows:
+5. In Endpoint Protection, turn on **Manage Endpoint Protection client on client computers** which should enable the other settings; keep other settings as default.
+6. For Hardware Inventory, I kept everything as default.
+7. In Software Center, I selected Yes for **Select these new settings to specify company information**.
+Then, click on the Customize button. Edit whatever you like. I added in a company name
+8. In Software Updates, I left everything as default.
+9. Once done, click OK to confirm everything and have your custom client settings created.
