@@ -241,3 +241,13 @@ Client Push is the server-side installation method used to push the SCCM client 
 1. Back in Configuration Manager, navigate to Administration > Site Configuration > Sites. Right-click your site, and click Client Installation Settings > Client Push Installation.
 2. Go to the **Accounts** tab, and click on the yellow star and click on **New Account**.
 3. For this, I created a separate domain account, aptly named sccmpush, to be used solely for pushing the Config Manager client. Then hit Apply.
+4. We will now move to our Domain Controller. Here, we will create a Group Policy that will allow for our sccmpush account to be a local administrator on clients to be able to push the agent/console out to. My workstations in this domain will be added to a my Workstations OU, and is where I will apply this Group Policy to. Right-click the OU you will be applying the policy to, and click on **Create a GPO in this domain**.
+5. Once the policy is created, right-click the policy and click on **Edit**.
+6. We will navigate the tree through this path: Computer Configuration > Preferences > Control Panel Settings > Local Users and Groups. Then, on the bottom of the window, click on **Standard**.
+7. Right-click on the right pane, click on **New** then click on **Local Group**.
+8. Leave the **Action:** field as **Update**, and select **Administrators** for the **Group Name:** field. Then add our sccmpush account to **Members:** section.
+9. Next, in the same Group Policy editor window, go to Computer Configuration > Policies > Windows Settings > Security Settings > Windows Defender Firewall with Advanced Security. Then right-click **Inbound Rule** and click on **New Rule**.
+10. Select **Predefined** and then select **Windows Management Instrumentation (WMI)** from the drop-down menu.
+11. Leave **Predefined Rule** as is, which by default, should have everything selected.
+12. In **Action** page, we will select **Allow the connection** and then click **Finish**.
+13. Then create a new Inbound Rule again. We will select **Predefined:** again and select **File and Printer Sharing** from the drop-down menu.
