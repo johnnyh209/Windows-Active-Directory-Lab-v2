@@ -1,44 +1,81 @@
 # Virtual Machine Config for Windows Server
 
 Next, I created a VM, named DC01, that my Windows Server will be running on. This will be my Domain Controller in my lab environment. Here's the configuration of said VM. </br>
-<img width="704" height="533" alt="1  Windows Server VM Config" src="https://github.com/user-attachments/assets/b82e6780-09d8-4613-8f3e-8445c77c808c" /> </br>
-<img width="912" height="155" alt="2  VM Overview" src="https://github.com/user-attachments/assets/eace2be4-e5d4-461d-bfc7-4f27b778d74f" /> </br>
+<img width="598" height="453" alt="1  Windows Server VM Config" src="https://github.com/user-attachments/assets/b82e6780-09d8-4613-8f3e-8445c77c808c" /> </br>
+<img width="730" height="124" alt="2  VM Overview" src="https://github.com/user-attachments/assets/eace2be4-e5d4-461d-bfc7-4f27b778d74f" /> </br>
 
 Note that I have designated its network adapter to be connected to the Private LAN virtual switch. This will be the case for the remainder of the VMs that I create. </br>
 
 I will also be modifying the number of virtual processors and modifying the Checkpoints settings too much like I did for my FW01 VM (pfSense). For the virtual processors, I dropped it down to 2 processors. </br>
-<img width="722" height="687" alt="3  Number of Virtual Processors" src="https://github.com/user-attachments/assets/cac20028-88ac-4f57-9641-c2041ffab67e" /> </br>
+<img width="578" height="550" alt="3  Number of Virtual Processors" src="https://github.com/user-attachments/assets/cac20028-88ac-4f57-9641-c2041ffab67e" /> </br>
 
 Under **Checkpoints**, I disabled **Use automatic checkpoints**. </br>
-<img width="722" height="687" alt="4  Checkpoints Settings" src="https://github.com/user-attachments/assets/8481d3f1-4466-40b6-a4ce-25f07c576f8f" /> </br>
+<img width="578" height="550" alt="4  Checkpoints Settings" src="https://github.com/user-attachments/assets/8481d3f1-4466-40b6-a4ce-25f07c576f8f" /> </br>
 
 # Installing Windows Server 2025
 
 With the VM configured and created, it is time to install Windows Server 2025. So, boot up DC01 VM and run through the Windows Server installation process.
 
-1. Select the language you will be using. I left everything on English.
-2. Select keyboard input method.
-3. Select your install option. Since I am installing Windows Server, I selected **Install Windows Server**. Also check the  checkbox to agree that everything on the drive will be deleted.
-4. Enter in your product key. If you don't have one, you can select the option that you currently don't have a product key and you can enter in a product key at a later time.
-5. Select the version of Windows Server you want to install. I am installing the standard desktop version.
-6. Accept the license agreement to continue to installation.
-7. Select the disk that you will be installing Windows Server on. I only have 1 disk.
-8. Wait for installation to finish.
-9. When install has finished, you will be creating a local administrator account.
-10. You will then be brought to the log-in page. Log-in to your administrator account, and you will be asked to select to send optional diagnostic data to Microsoft or only send required data.
-11. Next, you will be fully logged in and should see Server Manager:
+1. Select the language you will be using. I left everything on English. </br>
+<img width="512" height="438" alt="5  Language" src="https://github.com/user-attachments/assets/93a780b2-defa-41a4-b9cd-a8539277b236" /> </br>
+
+2. Select keyboard input method. </br>
+<img width="512" height="438" alt="6  Keyboard input method" src="https://github.com/user-attachments/assets/d6c8a222-7985-43d1-a32f-65b31ea3a72c" /> </br>
+
+3. Select your install option. Since I am installing Windows Server, I selected **Install Windows Server**. Also check the  checkbox to agree that everything on the drive will be deleted. </br>
+<img width="512" height="438" alt="7  Select to install" src="https://github.com/user-attachments/assets/fbbc22d8-8a47-40a7-9686-0abb3b31d509" /> </br>
+
+4. Enter in your product key. If you don't have one, you can select the option that you currently don't have a product key and you can enter in a product key at a later time. </br>
+<img width="512" height="438" alt="8  Enter product key" src="https://github.com/user-attachments/assets/a473923d-fa6c-4ed9-a84f-d9fec792736d" /> </br>
+
+5. Select the version of Windows Server you want to install. I am installing the standard desktop version. </br>
+<img width="512" height="438" alt="9  Select Windows Server version" src="https://github.com/user-attachments/assets/aa8c6df6-346b-440b-88c2-d9f547b2c0cb" /> </br>
+
+6. Accept the license agreement to continue to installation. </br>
+<img width="512" height="438" alt="10  License Agreement" src="https://github.com/user-attachments/assets/1774bfa0-7c38-49e9-8aa9-f55785e7a326" /> </br>
+
+7. Select the disk that you will be installing Windows Server on. I only have 1 disk. </br>
+<img width="512" height="438" alt="11  Select Disk" src="https://github.com/user-attachments/assets/f5d1c706-f66d-4baa-8319-4daad546f206" /> </br>
+
+8. Wait for installation to finish. </br>
+<img width="512" height="438" alt="12  Installing" src="https://github.com/user-attachments/assets/084a145e-ced5-4a56-b395-da6239ebaf6f" /> </br>
+
+9. When install has finished, you will be creating a local administrator account. </br>
+<img width="512" height="438" alt="13  Local Admin Account" src="https://github.com/user-attachments/assets/362aa9da-2c22-4d7a-9071-1d7e8d6d2196" /> </br>
+
+10. You will then be brought to the log-in page. Log-in to your administrator account, and you will be asked to select to send optional diagnostic data to Microsoft or only send required data. </br>
+<img width="512" height="438" alt="14  Diagnostics Data" src="https://github.com/user-attachments/assets/789d9e78-9b84-4dad-a553-ace09849f1c0" /> </br>
+
+11. Next, you will be fully logged in and should see Server Manager: </br>
+<img width="512" height="438" alt="15  Server Manager" src="https://github.com/user-attachments/assets/91780e03-fdc9-4dea-85ed-74b71f4b8325" /> </br>
 
 # Final Configurations
 
 Now that you finally have Windows Server installed, there are a few more tasks to complete.
 
-1. We need to assign an IP to the server. In Server Manager, select **Local Server** on the left pane. Then in the **Properties** box, click on **IPv4 address assigned by DHCP, IPv6 enabled**.
-2. This opens the **Network Connections** window. Right-click on the network adapter and click on **Properties**.
-3. in the Properties window, select **Internet Protocol Version 4(TCP/IPv4)** and click **Properties**.
-4. Give your Windows Service/Domain Controller an IP address within the subnet range of that your pfSense's LAN Adapter is in. Keep the subnet mask the same as what you set on pfSense and the default gateway should be the address to your pfSense's LAN adapter. For the DNS server, you can give it a public DNS server address.
-5. You should now see that your Windows Server/Domain Controller now has network access.
-6. Next, if the timezone is not correct, go ahead and adjust it.
-7. Next, set the hostname to your liking. I am changing mine to DC01. This will require you to restart the system.
+1. We need to assign an IP to the server. In Server Manager, select **Local Server** on the left pane. Then in the **Properties** box, click on **IPv4 address assigned by DHCP, IPv6 enabled**. </br>
+<img width="512" height="438" alt="16  Set IP" src="https://github.com/user-attachments/assets/1ba6e026-644b-4833-aade-668c7c1b2021" /> </br>
+
+2. This opens the **Network Connections** window. Right-click on the network adapter and click on **Properties**. </br>
+<img width="512" height="438" alt="16 1 Select Properties" src="https://github.com/user-attachments/assets/50547b47-5129-4651-a2d8-db7b6a497151" /> </br>
+
+3. in the Properties window, select **Internet Protocol Version 4(TCP/IPv4)** and click **Properties**. </br>
+<img width="512" height="438" alt="16 2 IPv4 Properties" src="https://github.com/user-attachments/assets/7051fe57-75a6-410d-8d98-2f4edfcccf0f" /> </br>
+
+4. Give your Windows Service/Domain Controller an IP address within the subnet range of that your pfSense's LAN Adapter is in. Keep the subnet mask the same as what you set on pfSense and the default gateway should be the address to your pfSense's LAN adapter. For the DNS server, you can give it a public DNS server address. </br>
+<img width="512" height="438" alt="16 3 IPv4 Settings" src="https://github.com/user-attachments/assets/3dafc9c8-a1ab-4a5f-9a77-5a079ceb7fc0" /> </br>
+
+5. You should now see that your Windows Server/Domain Controller now has network access. </br>
+<img width="512" height="438" alt="16 4 Network Connectivity" src="https://github.com/user-attachments/assets/53e5115b-cb70-4efb-8fa0-85c4cb294175" /> </br>
+
+6. Next, if the timezone is not correct, go ahead and adjust it. </br>
+<img width="512" height="438" alt="17  Timezone" src="https://github.com/user-attachments/assets/e5952e86-cf35-48e4-8f84-c8bbacee87ed" /> </br>
+<img width="512" height="438" alt="17 1 Timezone" src="https://github.com/user-attachments/assets/73193e81-e49d-47c1-aa28-42f850a43570" /> </br>
+
+7. Next, set the hostname to your liking. I am changing mine to DC01. This will require you to restart the system. </br>
+<img width="512" height="438" alt="18  Change hostname" src="https://github.com/user-attachments/assets/40d1e169-bfeb-4fa7-97ae-12a0773c1f65" /> </br>
+<img width="512" height="438" alt="18 2 Change hostname" src="https://github.com/user-attachments/assets/0403cdfc-6899-4120-88e9-b91b35284a5e" /> </br>
+<img width="512" height="438" alt="18 3 Change hostname" src="https://github.com/user-attachments/assets/4d6a04cf-9419-4fba-8b94-f81049d3de26" /> </br>
 
 # Domain Controller
 
