@@ -1,6 +1,6 @@
 # Windows-Active-Directory-Lab-v2
 
-A couple years back, I dipped my toes into using Virtual Box and configuring an Active Directory domain for the first time. It was documented on this [repository](https://github.com/johnnyh209/Active-Directory).
+A couple years back, I dipped my toes into using Virtual Box and configuring an Active Directory domain for the first time. It was documented in this [repository](https://github.com/johnnyh209/Active-Directory).
 
 For a while now, I have been wanting to redo the entire lab. This time, I decided to use Hyper-V, and configured a more robust network using pfSense.
 
