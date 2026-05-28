@@ -585,28 +585,51 @@ Client Push is the server-side installation method used to push the SCCM client 
 <img width="722" height="687" alt="12  Finish" src="https://github.com/user-attachments/assets/5a9e4e05-c62a-492b-8735-a3fb9391cb8b" /> </br>
 
 13. Then create a new Inbound Rule again. We will select **Predefined:** again and select **File and Printer Sharing** from the drop-down menu. </br>
+<img width="722" height="687" alt="13  File and Printer Sharing" src="https://github.com/user-attachments/assets/4ae21e32-4541-4f8b-a20c-b0890452be56" /> </br>
 
 
 # Post Installation: Boundary + Boundary Groups
 
 Boundaries are defined network locations, and boundary groups tell clients which site/distribution point to get content from.
 
-1. In Configuration Manager, go to Administration > Hierarchy Configuration > Boundaries. Right-click Bounadaries and click on **Create Boundary**.
-2. Enter in a description to your liking. I opted to use IP address range, and gave it my lab's IP range. Click Apply, then Ok to create the boundary.
-3. On the left pane, right-click on **Boundary Groups** and click on **Create Boundary Group**.
-4. Provide a name, and a description (if you want).
-5. On the **References** tab, add our SCCM system to the **Site system servers** field.
-6. We can also create another boundary group for site assignment to offer more granularity in the setup. Create a new Boundary Group and give it a name that reflects that this boundary group is for. Then, in the Boundaries field, add in the IP range Boundary we created earlier.
-7. In the **References** tab, check the box **Use this boundary group for site assignment**. Then, select the site you want to assign the IP range to.
+1. In Configuration Manager, go to Administration > Hierarchy Configuration > Boundaries. Right-click Bounadaries and click on **Create Boundary**. </br>
+<img width="1920" height="1080" alt="1  Create Boundary" src="https://github.com/user-attachments/assets/5afbca4b-ed52-4021-958c-b580429f544f" /> </br>
+
+2. Enter in a description to your liking. I opted to use IP address range, and gave it my lab's IP range. Click Apply, then Ok to create the boundary. </br>
+<img width="1920" height="1080" alt="2  Boundary details" src="https://github.com/user-attachments/assets/d7b12a26-be19-4b08-bccb-6daa732d26cd" /> </br>
+
+3. On the left pane, right-click on **Boundary Groups** and click on **Create Boundary Group**. </br>
+<img width="1920" height="1080" alt="3  Create Boundary Group" src="https://github.com/user-attachments/assets/b8be9a39-255b-4a11-9a77-9f6bf6227db6" /> </br>
+
+4. Provide a name, and a description (if you want). </br>
+<img width="1920" height="1080" alt="4  Boundary Group Name" src="https://github.com/user-attachments/assets/58d8b08c-bb77-4603-9c6a-8836ecaedec0" /> </br>
+
+5. On the **References** tab, add our SCCM system to the **Site system servers** field. </br>
+<img width="1920" height="1080" alt="5 1 Site systems" src="https://github.com/user-attachments/assets/f05f61c1-3411-4331-9a1b-1c1a98a53706" /> </br>
+<img width="1920" height="1080" alt="5 2 Site systems" src="https://github.com/user-attachments/assets/a939503b-4560-41be-8194-23dedbaef46b" /> </br>
+
+6. We can also create another boundary group for site assignment to offer more granularity in the setup. Create a new Boundary Group and give it a name that reflects that this boundary group is for. Then, in the Boundaries field, add in the IP range Boundary we created earlier. </br>
+<img width="1920" height="1080" alt="6  Site Assignment Boundary Group" src="https://github.com/user-attachments/assets/f8a69060-ddcb-4274-9428-06df0aa7a1bf" /> </br>
+
+7. In the **References** tab, check the box **Use this boundary group for site assignment**. Then, select the site you want to assign the IP range to. </br>
+<img width="1920" height="1080" alt="7  Site Assignment" src="https://github.com/user-attachments/assets/19b079b7-d055-4f5b-bd32-9ef67f1eeb86" /> </br>
 
 # Post Installation: Configure Client Discovery
 
 Configuring this will allow SCCM to discover clients in our site.
 
-1. In Configuration Manager, go to Administration > Hierarchy Configuration > Discovery Methods. You will see see various methods listed. We will setup **Active Direcotry System Discovery**, so double-click to open its properties.
-2. In the General tab, check the box to **Enable Active Directory System Discovery**.
-3. Then, click on the yellow star and select where you want to discover your systems/clients at (whether you want to discover everything from within the domain, or from a specific OU). I will select my Workstation OU.
-4. In the Polling Schedule tab, set how often you want Config Manager to poll your domain for computer data. I am setting it to poll everyday at 12 AM.
+1. In Configuration Manager, go to Administration > Hierarchy Configuration > Discovery Methods. You will see see various methods listed. We will setup **Active Direcotry System Discovery**, so double-click to open its properties. </br>
+<img width="1920" height="1080" alt="1  Dicovery Method" src="https://github.com/user-attachments/assets/d084f580-7903-41b4-95c5-64cb9f41086c" /> </br>
+
+2. In the General tab, check the box to **Enable Active Directory System Discovery**. </br>
+<img width="1920" height="1080" alt="2  General Tab" src="https://github.com/user-attachments/assets/a5991029-bc12-4a31-aad2-e1c0bda5cbae" /> </br>
+
+3. Then, click on the yellow star and select where you want to discover your systems/clients at (whether you want to discover everything from within the domain, or from a specific OU). I will select my Workstation OU. </br>
+<img width="1920" height="1080" alt="3  Container" src="https://github.com/user-attachments/assets/118ca8ea-63d6-449f-a694-f8985b1a29d9" /> </br>
+
+4. In the Polling Schedule tab, set how often you want Config Manager to poll your domain for computer data. I am setting it to poll everyday at 12 AM. </br>
+<img width="1920" height="1080" alt="4  Polling Schedule" src="https://github.com/user-attachments/assets/5091cd8c-35a6-496a-90c6-b9e8ae75d0e1" /> </br>
+
 5. We can leave the remaining tabs as default.
 
 # Post Installation: Client Settings
