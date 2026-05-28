@@ -205,45 +205,101 @@ With SQL Server 2025, Power BI Report Server (PBRS) replaces SQL Sever Reporting
 
 We now need to install SQL Server Management Studio (SSMS), which allows us to view our SQL database(s). You can find SSMS [here](https://learn.microsoft.com/en-us/ssms/install/install).
 
-1. Run the SSMS installer, which will open up Visual Studio Instller. Click **Continue**.
-2. Choose your optional components, and click **Install**.
-3. Once installation is complete, restart your system.
-4. After restarting, launch SQL Server Management Studio. Enter in your Server Name, Authentication information, and connect.
-5. Under Object Explorer, right-click on your server, and click **Properties**.
-6. Under **Memory**, set the minimum and maximum memory. It is recommended to set at least 8 GB minimum, and 90% of your system's total memory as the maximum. Then reboot once more.
-7. After restarting, install the latest cumulative update for SQL Server.
-8. Select the features you want installed. I left everything selected.
-9. Wait for the check to finish, and continue.
-10. Proceed with the update and wait for it to finish installing.
+1. Run the SSMS installer, which will open up Visual Studio Instller. Click **Continue**. </br>
+<img width="722" height="687" alt="1  SSMS Install" src="https://github.com/user-attachments/assets/4cf202c0-c68d-4df2-9823-25da2eda5a8f" /> </br>
+
+2. Choose your optional components, and click **Install**. </br>
+<img width="722" height="687" alt="2  Optional Components and Install" src="https://github.com/user-attachments/assets/d4295fb8-1942-41e2-901d-08b824f74da0" /> </br>
+
+3. Once installation is complete, restart your system. </br>
+<img width="722" height="687" alt="3  Restart" src="https://github.com/user-attachments/assets/3bda8606-eefe-4b5a-b4e9-415656b2832b" /> </br>
+
+4. After restarting, launch SQL Server Management Studio. Enter in your Server Name, Authentication information, and connect. </br>
+<img width="722" height="687" alt="4  Run SSMS" src="https://github.com/user-attachments/assets/058bdd17-805d-4dd9-a33b-3d04fb545803" /> </br>
+
+5. Under Object Explorer, right-click on your server, and click **Properties**. </br>
+<img width="722" height="687" alt="5  Properties" src="https://github.com/user-attachments/assets/7237f32f-c07f-46d4-a8ae-c2f3aa300b9c" /> </br>
+
+6. Under **Memory**, set the minimum and maximum memory. It is recommended to set at least 8 GB minimum, and 90% of your system's total memory as the maximum. Then reboot once more. </br>
+<img width="722" height="687" alt="6  Set Memory" src="https://github.com/user-attachments/assets/830e5e3a-ee90-4620-b859-667d7295b5f9" /> </br>
+
+7. After restarting, install the latest cumulative update for SQL Server. </br>
+<img width="722" height="687" alt="7  SQL Server Cumulative Update" src="https://github.com/user-attachments/assets/57532c89-5e09-484a-b8e0-fb10818f460c" /> </br>
+
+8. Select the features you want installed. I left everything selected. </br>
+<img width="722" height="687" alt="9  Select Feature" src="https://github.com/user-attachments/assets/00bd24f6-7f05-49d0-9e6c-dc36b0157dff" /> </br>
+
+9. Wait for the check to finish, and continue. </br>
+<img width="722" height="687" alt="10  Check" src="https://github.com/user-attachments/assets/14062a17-ec5e-4a9b-9a0f-1c8b0aa42dd6" /> </br>
+
+10. Proceed with the update and wait for it to finish installing. </br>
+<img width="722" height="687" alt="11  Update Success" src="https://github.com/user-attachments/assets/62dff9c8-09b5-4401-b216-0b82faeac222" /> </br>
 
 # Installing WSUS
 
 Next, we will install WSUS. WSUS will allow us to centrally manage and deploy software updates.
 
 1. On our SCCM Server, Server2025, we go to Add Roles and Features.
+<img width="1024" height="877" alt="1  Add Roles" src="https://github.com/user-attachments/assets/775fe51b-2d92-4336-b3cf-03f7338821a2" />
+
 2. Selet **Role-Based or feature-based installation**.
+<img width="1024" height="877" alt="2  Installation Type" src="https://github.com/user-attachments/assets/325a7b48-4c15-4a83-b0e9-9d3ef6d6531c" />
+
 3. Our server should be selected automatically, as it is the only server listed. Click Next.
+<img width="1024" height="877" alt="3  Server Selection" src="https://github.com/user-attachments/assets/bee221fe-3d95-4f32-a08f-01f31b14b3ab" />
+
 4. Select Windows Server Update Services.
+<img width="1024" height="877" alt="4  Select WSUS" src="https://github.com/user-attachments/assets/dae845a4-baed-4a2c-8136-e5e1e4e0d80c" />
+
 5. There is nothing that needs selecting in **Select features**. Continue on.
+<img width="1024" height="877" alt="5  Select Features" src="https://github.com/user-attachments/assets/763dee86-670b-402d-a13f-8444d801cc02" />
+
 6. In **Select role services** for WSUS, uncheck WID Connectivity and check **SQL Server Connectivity**.
+<img width="1024" height="877" alt="6  Role Services" src="https://github.com/user-attachments/assets/db20d09f-a48c-43a4-a94c-9de1a86f21d7" />
+
 7. Set the location you want to store updates in. I have selected my SCCM_ContentLibrary drive (K:\), directly to a folder I created named WSUS.
+<img width="1024" height="877" alt="7  Set location" src="https://github.com/user-attachments/assets/d16de0c5-8032-46e1-98a3-c8be2ea23a5d" />
+
 8. Specify your database server.
+<img width="1024" height="877" alt="8  Specify Database Server" src="https://github.com/user-attachments/assets/0414f7f4-632f-40a7-8e4e-a5b3539e4c87" />
+
 9. Run the install and wait for completion.
+<img width="1024" height="877" alt="9  Run Install" src="https://github.com/user-attachments/assets/7c15b50a-cdb8-4a65-828a-10caec0f9377" />
+
 10. Finally, run the Post-Installation tasks.
+<img width="1024" height="877" alt="10  Run Post Installation Tasks" src="https://github.com/user-attachments/assets/99c45494-810b-4eb1-96b2-26526df7e23c" />
+
 11. According to Microsoft, it is good practice to set the WSUSPool Queue Length to 2000 and increase WsusPool Private Memory limit by 4 times. This is done in IIS. So open IIS Manager.
+<img width="1024" height="877" alt="11  IIS Manager" src="https://github.com/user-attachments/assets/caf68a75-cc0a-42d6-bc91-6242bf251664" />
+
 12. On the left pane, navigate to your server > Application Pool. Then right-click **WsusPool** and click on **Advanced Settings**.
+<img width="1024" height="877" alt="12  Advanced Settings" src="https://github.com/user-attachments/assets/a3ae8fda-66f6-4021-b290-4e9a5f76c255" />
+
 13. Change the **Queue Length** from the 1000 default value to 2000.
+<img width="1024" height="877" alt="13  Change Queue Length" src="https://github.com/user-attachments/assets/b1b6b34a-1d78-4c92-b21f-ff1d0147a852" />
+
 14. Change the **Private Memory Limit** to 4x what is set by default.
+
 15. Because I created a separate drive for WSUS Database, I will have to change the default database path that has been set. First, stop WsusPool in IIS Manager and Wsus Service in Services.
+
 16. Open SQL Management Studio. Navigate to [Server] > Databases > SUSDB. Right-Click SUSDB and go to Properties.
+
 17. Under Files, you should see the default Path. Copy that path and navigate to it in File Explorer.
+
 18. Now that we have the path opened in File Explorer, go and right-click on SUSDB, click on Tasks > Detach.
+
 19. Select Drop Connections and then click OK.
+
 20. Back in File Explorer, in the path we navigated to, Move the **SUSDB.mdf** and **SUSDB_log.ldf** files to our WSUS drive, which is my I:\ drive named SQL_WSUS_Database.
+
 21. Back in SQL Manager, right-click Databases and click Attach.
+
 22. Click on the **Add...** button.
+
 23. Navigate to our I:\Database file path, select SUSDB.mdf, and click OK.
+
 24. Click OK to readd SUSDB.
+
 25. Start WSUS Service and WsusPool.
 
 # Installing Windows ADK
