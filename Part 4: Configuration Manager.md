@@ -239,66 +239,80 @@ We now need to install SQL Server Management Studio (SSMS), which allows us to v
 
 Next, we will install WSUS. WSUS will allow us to centrally manage and deploy software updates.
 
-1. On our SCCM Server, Server2025, we go to Add Roles and Features.
-<img width="1024" height="877" alt="1  Add Roles" src="https://github.com/user-attachments/assets/775fe51b-2d92-4336-b3cf-03f7338821a2" />
+1. On our SCCM Server, Server2025, we go to Add Roles and Features. </br>
+<img width="722" height="687" alt="1  Add Roles" src="https://github.com/user-attachments/assets/775fe51b-2d92-4336-b3cf-03f7338821a2" /> </br>
 
-2. Selet **Role-Based or feature-based installation**.
-<img width="1024" height="877" alt="2  Installation Type" src="https://github.com/user-attachments/assets/325a7b48-4c15-4a83-b0e9-9d3ef6d6531c" />
+2. Selet **Role-Based or feature-based installation**. </br>
+<img width="722" height="687" alt="2  Installation Type" src="https://github.com/user-attachments/assets/325a7b48-4c15-4a83-b0e9-9d3ef6d6531c" /> </br>
 
-3. Our server should be selected automatically, as it is the only server listed. Click Next.
-<img width="1024" height="877" alt="3  Server Selection" src="https://github.com/user-attachments/assets/bee221fe-3d95-4f32-a08f-01f31b14b3ab" />
+3. Our server should be selected automatically, as it is the only server listed. Click Next. </br>
+<img width="722" height="687" alt="3  Server Selection" src="https://github.com/user-attachments/assets/bee221fe-3d95-4f32-a08f-01f31b14b3ab" /> </br>
 
-4. Select Windows Server Update Services.
-<img width="1024" height="877" alt="4  Select WSUS" src="https://github.com/user-attachments/assets/dae845a4-baed-4a2c-8136-e5e1e4e0d80c" />
+4. Select Windows Server Update Services. </br>
+<img width="722" height="687" alt="4  Select WSUS" src="https://github.com/user-attachments/assets/dae845a4-baed-4a2c-8136-e5e1e4e0d80c" /> </br>
 
-5. There is nothing that needs selecting in **Select features**. Continue on.
-<img width="1024" height="877" alt="5  Select Features" src="https://github.com/user-attachments/assets/763dee86-670b-402d-a13f-8444d801cc02" />
+5. There is nothing that needs selecting in **Select features**. Continue on. </br>
+<img width="722" height="687" alt="5  Select Features" src="https://github.com/user-attachments/assets/763dee86-670b-402d-a13f-8444d801cc02" /> </br>
 
-6. In **Select role services** for WSUS, uncheck WID Connectivity and check **SQL Server Connectivity**.
-<img width="1024" height="877" alt="6  Role Services" src="https://github.com/user-attachments/assets/db20d09f-a48c-43a4-a94c-9de1a86f21d7" />
+6. In **Select role services** for WSUS, uncheck WID Connectivity and check **SQL Server Connectivity**. </br>
+<img width="722" height="687" alt="6  Role Services" src="https://github.com/user-attachments/assets/db20d09f-a48c-43a4-a94c-9de1a86f21d7" /> </br>
 
-7. Set the location you want to store updates in. I have selected my SCCM_ContentLibrary drive (K:\), directly to a folder I created named WSUS.
-<img width="1024" height="877" alt="7  Set location" src="https://github.com/user-attachments/assets/d16de0c5-8032-46e1-98a3-c8be2ea23a5d" />
+7. Set the location you want to store updates in. I have selected my SCCM_ContentLibrary drive (K:\), directly to a folder I created named WSUS. </br>
+<img width="722" height="687" alt="7  Set location" src="https://github.com/user-attachments/assets/d16de0c5-8032-46e1-98a3-c8be2ea23a5d" /> </br>
 
-8. Specify your database server.
-<img width="1024" height="877" alt="8  Specify Database Server" src="https://github.com/user-attachments/assets/0414f7f4-632f-40a7-8e4e-a5b3539e4c87" />
+8. Specify your database server. </br>
+<img width="722" height="687" alt="8  Specify Database Server" src="https://github.com/user-attachments/assets/0414f7f4-632f-40a7-8e4e-a5b3539e4c87" /> </br>
 
-9. Run the install and wait for completion.
-<img width="1024" height="877" alt="9  Run Install" src="https://github.com/user-attachments/assets/7c15b50a-cdb8-4a65-828a-10caec0f9377" />
+9. Run the install and wait for completion. </br>
+<img width="722" height="687" alt="9  Run Install" src="https://github.com/user-attachments/assets/7c15b50a-cdb8-4a65-828a-10caec0f9377" /> </br>
 
-10. Finally, run the Post-Installation tasks.
-<img width="1024" height="877" alt="10  Run Post Installation Tasks" src="https://github.com/user-attachments/assets/99c45494-810b-4eb1-96b2-26526df7e23c" />
+10. Finally, run the Post-Installation tasks. </br>
+<img width="722" height="687" alt="10  Run Post Installation Tasks" src="https://github.com/user-attachments/assets/99c45494-810b-4eb1-96b2-26526df7e23c" /> </br>
 
-11. According to Microsoft, it is good practice to set the WSUSPool Queue Length to 2000 and increase WsusPool Private Memory limit by 4 times. This is done in IIS. So open IIS Manager.
-<img width="1024" height="877" alt="11  IIS Manager" src="https://github.com/user-attachments/assets/caf68a75-cc0a-42d6-bc91-6242bf251664" />
+11. According to Microsoft, it is good practice to set the WSUSPool Queue Length to 2000 and increase WsusPool Private Memory limit by 4 times. This is done in IIS. So open IIS Manager. </br>
+<img width="722" height="687" alt="11  IIS Manager" src="https://github.com/user-attachments/assets/caf68a75-cc0a-42d6-bc91-6242bf251664" /> </br>
 
-12. On the left pane, navigate to your server > Application Pool. Then right-click **WsusPool** and click on **Advanced Settings**.
-<img width="1024" height="877" alt="12  Advanced Settings" src="https://github.com/user-attachments/assets/a3ae8fda-66f6-4021-b290-4e9a5f76c255" />
+12. On the left pane, navigate to your server > Application Pool. Then right-click **WsusPool** and click on **Advanced Settings**. </br>
+<img width="722" height="687" alt="12  Advanced Settings" src="https://github.com/user-attachments/assets/a3ae8fda-66f6-4021-b290-4e9a5f76c255" /> </br>
 
-13. Change the **Queue Length** from the 1000 default value to 2000.
-<img width="1024" height="877" alt="13  Change Queue Length" src="https://github.com/user-attachments/assets/b1b6b34a-1d78-4c92-b21f-ff1d0147a852" />
+Microsoft recommends that the WsusPool Queue Length is increased to 2000, and WsusPol Private Memory limit is inreased by 4x. </br>
+<img width="1025" height="233" alt="auVjn8FKKL" src="https://github.com/user-attachments/assets/cf880228-d06f-4a7d-977e-3af817b63d0d" /> </br>
+13. Change the **Queue Length** from the 1000 default value to 2000. </br>
+<img width="722" height="687" alt="13  Change Queue Length" src="https://github.com/user-attachments/assets/b1b6b34a-1d78-4c92-b21f-ff1d0147a852" /> </br>
 
-14. Change the **Private Memory Limit** to 4x what is set by default.
+14. Change the **Private Memory Limit** to 4x what is set by default. </br>
+<img width="722" height="687" alt="14  Memory_Limit" src="https://github.com/user-attachments/assets/53f2ff31-ca2d-41fd-9f93-e917188502c5" /> </br>
 
-15. Because I created a separate drive for WSUS Database, I will have to change the default database path that has been set. First, stop WsusPool in IIS Manager and Wsus Service in Services.
+15. Because I created a separate drive for WSUS Database, I will have to change the default database path that has been set. First, stop WsusPool in IIS Manager and Wsus Service in Services. </br>
+<img width="722" height="687" alt="15 1 Stop WsusPool" src="https://github.com/user-attachments/assets/1042d165-33ff-4431-ad33-820d25eb2cbe" /> </br>
+<img width="722" height="687" alt="15 2 Stop Wsus Service" src="https://github.com/user-attachments/assets/c7522d75-ab1d-4933-befa-7862b6b7591c" /> </br>
 
-16. Open SQL Management Studio. Navigate to [Server] > Databases > SUSDB. Right-Click SUSDB and go to Properties.
+16. Open SQL Management Studio. Navigate to [Server] > Databases > SUSDB. Right-Click SUSDB and go to Properties. </br>
+<img width="722" height="687" alt="16  SUSDB" src="https://github.com/user-attachments/assets/f945caf9-3163-4b3e-b4a5-14b613b66e64" /> </br>
 
-17. Under Files, you should see the default Path. Copy that path and navigate to it in File Explorer.
+17. Under Files, you should see the default Path. Copy that path and navigate to it in File Explorer. </br>
+<img width="722" height="687" alt="17  Default Path" src="https://github.com/user-attachments/assets/8a85eff2-88c0-412d-9b52-a35f8fdd7a5e" /> </br>
 
-18. Now that we have the path opened in File Explorer, go and right-click on SUSDB, click on Tasks > Detach.
+18. Now that we have the path opened in File Explorer, go and right-click on SUSDB, click on Tasks > Detach. </br>
+<img width="722" height="687" alt="18  Detach" src="https://github.com/user-attachments/assets/6dfb46bc-c8da-462f-bea9-7a5fa2e3abb6" /> </br>
 
-19. Select Drop Connections and then click OK.
+19. Select Drop Connections and then click OK. </br>
+<img width="722" height="687" alt="19  Drop Connections" src="https://github.com/user-attachments/assets/ba15a79c-934d-4f6d-8eb6-e24058612641" /> </br>
 
-20. Back in File Explorer, in the path we navigated to, Move the **SUSDB.mdf** and **SUSDB_log.ldf** files to our WSUS drive, which is my I:\ drive named SQL_WSUS_Database.
+20. Back in File Explorer, in the path we navigated to, Move the **SUSDB.mdf** and **SUSDB_log.ldf** files to our WSUS drive, which is my I:\ drive named SQL_WSUS_Database. </br>
+<img width="722" height="687" alt="20  Move SUSDB files" src="https://github.com/user-attachments/assets/0516aece-ab9d-4d36-a13e-4f84053694fe" /> </br>
 
-21. Back in SQL Manager, right-click Databases and click Attach.
+21. Back in SQL Manager, right-click Databases and click Attach. </br>
+<img width="722" height="687" alt="21  Attach" src="https://github.com/user-attachments/assets/16756f76-1809-4645-ae9c-3ab68c55bc44" /> </br>
 
-22. Click on the **Add...** button.
+22. Click on the **Add...** button. </br>
+<img width="722" height="687" alt="22  Add button" src="https://github.com/user-attachments/assets/4d8fd271-ead8-4034-98af-50a0f58110ee" /> </br>
 
-23. Navigate to our I:\Database file path, select SUSDB.mdf, and click OK.
+23. Navigate to our I:\Database file path, select SUSDB.mdf, and click OK. </br>
+<img width="722" height="687" alt="23  Attach file" src="https://github.com/user-attachments/assets/c7e6a040-20d6-4cf8-b0e7-8f4b884bdf4f" /> </br>
 
-24. Click OK to readd SUSDB.
+24. Click OK to readd SUSDB. </br>
+<img width="722" height="687" alt="24  Click OK" src="https://github.com/user-attachments/assets/4605fb15-966c-41a1-9bc9-3161c0eb3fc2" /> </br>
 
 25. Start WSUS Service and WsusPool.
 
@@ -306,113 +320,272 @@ Next, we will install WSUS. WSUS will allow us to centrally manage and deploy so
 
 Get the Windows ADK and Windows PE add-on installers [here](https://learn.microsoft.com/en-us/windows-hardware/get-started/adk-install).
 
-1. Run the **adksetup.exe**. We wil leave the default install path.
-2. Select Yes or No to allow Microsoft to collect insights.
-3. Read through and accept the license agreement to continue.
-4. Select the features needed, and Install.
+1. Run the **adksetup.exe**. We wil leave the default install path. </br>
+<img width="722" height="687" alt="1  ADK Install" src="https://github.com/user-attachments/assets/9c2dfa85-a0de-4ebd-a71e-3f3fd818e7b6" /> </br>
+
+2. Select Yes or No to allow Microsoft to collect insights. </br>
+<img width="722" height="687" alt="2  Privacy" src="https://github.com/user-attachments/assets/08850046-51b5-43bf-9c6f-a4d32b0b1eb3" /> </br>
+
+3. Read through and accept the license agreement to continue. </br>
+<img width="722" height="687" alt="3  License Agreement" src="https://github.com/user-attachments/assets/3bfdde8c-95d6-4ed8-a6ba-bc2cabc3c02a" /> </br>
+
+4. Select the features needed, and Install. </br>
+<img width="722" height="687" alt="4  Select Features" src="https://github.com/user-attachments/assets/6a8f328e-a774-4be2-9adb-8b07917f777a" /> </br>
+
 5. Once that is complete, run **adkwinpesetup.exe**.
-6. Leave the location specification as it is and click Next.
-7. Select Yes or No to allow Microsoft to collect insights.
-8. Read through and accept the license agreement to continue.
-9. There is only one feature to select to install, which is WinPE.
+
+6. Leave the location specification as it is and click Next. </br>
+<img width="722" height="687" alt="5  WinPE" src="https://github.com/user-attachments/assets/e7bc334a-9aeb-4e7e-a829-1d89e8864d3e" /> </br>
+
+7. Select Yes or No to allow Microsoft to collect insights. </br>
+<img width="722" height="687" alt="6  WinPE Privacy" src="https://github.com/user-attachments/assets/94f176e4-3f8e-49fe-ba42-cedd981e9e27" /> </br>
+
+8. Read through and accept the license agreement to continue. </br>
+<img width="722" height="687" alt="7  License Agreement" src="https://github.com/user-attachments/assets/a04efa8f-9cfc-41f3-a5dd-2ac747e0011f" /> </br>
+
+9. There is only one feature to select to install, which is WinPE. </br>
+<img width="722" height="687" alt="8  Feature selection" src="https://github.com/user-attachments/assets/504811d2-27bb-43fa-ad5b-f486ac9b7704" /> </br>
 
 # Extend Active Directory Schema
 
 For this lab, we will be using the Technical Preview version of Configuration Manager. Download the installer [here](https://www.microsoft.com/en-in/evalcenter/evaluate-microsoft-endpoint-configuration-manager-technical-preview). While this will be used to install Configuration Manager, we also need an .exe in here that will extend our Active Directory Schema.
 
-1. Run **ConfigMgr_2509.exe**. Designate where to extract the files to. Then press Extract.
-2. Open up the folder that has been extracted. Then navigate to SMSSETUP\BIN\X64. Look for **extadsch.exe**.
-3. While holding Shift key, right-click on **extadsch.exe** and click on **Run as different user**.
-4. Enter in the credentials of an account with the necessary rights to extend an AD schema.
-5. You will see CMD open up briefly and close. To verify that the .exe worked successfully, go to C:\ and find the **ExtADSch.log**.
-6. Open the log file and find the entry that states that the Active Directory schema has been extended successfully.
+1. Run **ConfigMgr_2509.exe**. Designate where to extract the files to. Then press Extract. </br>
+<img width="722" height="687" alt="1  Extract" src="https://github.com/user-attachments/assets/358ef1d9-c665-4ff3-a3d4-aaa87e20fddd" /> </br>
+
+2. Open up the folder that has been extracted. Then navigate to SMSSETUP\BIN\X64. Look for **extadsch.exe**. </br>
+<img width="722" height="687" alt="2  Navigate to extadsch" src="https://github.com/user-attachments/assets/d66b51d9-7a42-47c7-a693-520d1f71d397" /> </br>
+
+3. While holding Shift key, right-click on **extadsch.exe** and click on **Run as different user**. </br>
+<img width="722" height="687" alt="3  Run as different user" src="https://github.com/user-attachments/assets/ccf99e1c-f81f-4869-a1fd-b6542f71a93b" /> </br>
+
+4. Enter in the credentials of an account with the necessary rights to extend an AD schema. </br>
+<img width="722" height="687" alt="4  Enter credentials" src="https://github.com/user-attachments/assets/893db2be-cb93-4bc8-8d4a-b336b4f265db" /> </br>
+
+5. You will see CMD open up briefly and close. To verify that the .exe worked successfully, go to C:\ and find the **ExtADSch.log**. </br>
+<img width="722" height="687" alt="5  ADSCH log" src="https://github.com/user-attachments/assets/27ce3ac8-87d5-4fe9-af96-4196ad51820c" /> </br>
+
+6. Open the log file and find the entry that states that the Active Directory schema has been extended successfully. </br>
+<img width="722" height="687" alt="6  Log Entry" src="https://github.com/user-attachments/assets/a0a31570-6106-4ee8-94bb-8dfdb446cbc1" /> </br>
 
 # Create SCCM Databases
 
 Let's create our SCCM databases before we finally install Configuration Manager.
 
-1. Back in SQL Server Management Studio, right-click Databases and click on **New Database**.
-2. Enter in a database name and database owner.
-3. From the initial 1 database filea and 1 database log file created automatically, I added 3 more database files. This means I have 1 database log, and 4 database files in total. For each of the database files, I set their initial size to 256 MB (for a small lab like mine, this should be fine), and the log file to 512 MB. For the autogrowth size, the 4 database files are set to 128 MB and the log file to 256 MB.
-4. Remember at the beginning I also create separate drives for the SQL Server MDF database files and 1 for the log files. As such, I set the path for the 4 database files to point to my MDF drive (F:\Database in my case) and my log file to my LDF drive (G:\Database in my case).
-5. Finally, set the Recovery Model to **Simple**.
+1. Back in SQL Server Management Studio, right-click Databases and click on **New Database**. </br>
+<img width="722" height="687" alt="1  Create New Database" src="https://github.com/user-attachments/assets/653c5968-1980-46b6-a509-e48a6bbef2ca" /> </br>
+
+2. Enter in a database name and database owner. </br>
+<img width="722" height="687" alt="2  Database Name and owner" src="https://github.com/user-attachments/assets/65513646-6d49-4175-a9a6-d39f7d26cda6" /> </br>
+
+3. From the initial 1 database filea and 1 database log file created automatically, I added 3 more database files. This means I have 1 database log, and 4 database files in total. For each of the database files, I set their initial size to 256 MB (for a small lab like mine, this should be fine), and the log file to 512 MB. For the autogrowth size, the 4 database files are set to 128 MB and the log file to 256 MB. </br>
+<img width="722" height="687" alt="3  Database files and size" src="https://github.com/user-attachments/assets/6d0c3166-b3ed-4fad-8dad-a2ad2fac1c2b" /> </br>
+
+4. Remember at the beginning I also create separate drives for the SQL Server MDF database files and 1 for the log files. As such, I set the path for the 4 database files to point to my MDF drive (F:\Database in my case) and my log file to my LDF drive (G:\Database in my case). </br>
+<img width="722" height="687" alt="4 1 Drives" src="https://github.com/user-attachments/assets/d867f6a5-e3af-46bd-8148-4955736d2092" /> </br>
+<img width="722" height="687" alt="4 2 Drives" src="https://github.com/user-attachments/assets/17271855-5330-4144-8fcc-a8b0a67b36f5" /> </br>
+
+5. Finally, set the Recovery Model to **Simple**. </br>
+<img width="722" height="687" alt="5  Recovery Model" src="https://github.com/user-attachments/assets/dddfdfbc-14b1-481b-a99c-e60b5b081da1" /> </br>
 
 # Installing Config Manager
 
-1. Return to the folder that we extracted from **ConfigMgr_2509.exe**. Within that folder, run **splash.hta**.
-2. Click **Install**.
-3. Click **Next**.
-4. For our small lab environment, we choose **Install a Configuration Manager Primary site**.
-5. If you have a product key, enter in your product key. Otherwise, select **Install the evaluation edition of this product**.
-6. Read and accept the license terms to continue.
-7. Since I don't already have existing prerequisite files, select to download required files. Wait for the download to finish.
-8. Select your language.
-9. Select client language.
-10. Enter a site code, site name, and intallation path. I am setting my installation path to my E:\ that I created to house Config Manager.
-11. Select to **Install the primary site as a stand-alone site**.
-12. Your SQL Server name and Database name should already be prefilled. Since I don't have a custom instance name, I am leaving it blank. Keep Service Broker Port as is: 4022.
-13. Enter in a path for your SQL Server data file and log file. Since I did create separate drives for them at the beginning, I will be using those drives.
-14. We will install SMS provider on this machine, so nothing needs to be changed.
-15. Select **Configure the comunication method on each site system role**.
-16. We will install both management point and distribution point on this server.
-17. On **Diagnostic and Usage Data**, read and hit next.
-18. We will have the installer setup a Service Point Connection.
-19. Review summary and go through Prerequisite Check.
-20. Once the check has completed successfully, click on **Begin Install**.
+1. Return to the folder that we extracted from **ConfigMgr_2509.exe**. Within that folder, run **splash.hta**. </br>
+<img width="722" height="687" alt="1  Splash hta" src="https://github.com/user-attachments/assets/5253da18-f01d-4ce7-b1d6-31c5f4b817c3" /> </br>
+
+2. Click **Install**. </br>
+<img width="722" height="687" alt="2  Click Install" src="https://github.com/user-attachments/assets/5913cec2-b10d-449f-8b27-4cb93d5df2fe" /> </br>
+
+3. Click **Next**. </br>
+<img width="722" height="687" alt="3  Click Next" src="https://github.com/user-attachments/assets/c21fd019-a4fc-4384-b0dc-1127da055dda" /> </br>
+
+4. For our small lab environment, we choose **Install a Configuration Manager Primary site**. </br>
+<img width="722" height="687" alt="4  Install Primary Site" src="https://github.com/user-attachments/assets/c9a8b247-6dab-49ec-acf0-16ac1fa75cef" /> </br>
+
+5. If you have a product key, enter in your product key. Otherwise, select **Install the evaluation edition of this product**. </br>
+<img width="722" height="687" alt="5  Eval Version" src="https://github.com/user-attachments/assets/d1ccc91e-0608-4107-8d45-1b18d224433f" /> </br>
+
+6. Read and accept the license terms to continue. </br>
+<img width="722" height="687" alt="6  License Terms" src="https://github.com/user-attachments/assets/a914f03f-9f58-4480-80e0-2284d40df859" /> </br>
+
+7. Since I don't already have existing prerequisite files, select to download required files. Wait for the download to finish. </br>
+<img width="722" height="687" alt="7  Download Prereq files" src="https://github.com/user-attachments/assets/d03e11e9-0b2f-4393-bbc2-14b9a0f737fb" /> </br>
+
+8. Select your language. </br>
+<img width="722" height="687" alt="8  Language Selection" src="https://github.com/user-attachments/assets/1d6e3ee7-6d58-4768-a682-e7ab3997ee8a" /> </br>
+
+9. Select client language. </br>
+<img width="722" height="687" alt="9  Select Client Language" src="https://github.com/user-attachments/assets/70b545b5-f7b7-43b9-99a7-7d53348699e0" /> </br>
+
+10. Enter a site code, site name, and intallation path. I am setting my installation path to my E:\ that I created to house Config Manager. </br>
+<img width="722" height="687" alt="10  Install Path" src="https://github.com/user-attachments/assets/687f14d8-54f7-4f28-9a6d-334c79c3e5e8" /> </br>
+
+11. Select to **Install the primary site as a stand-alone site**. </br>
+<img width="722" height="687" alt="11  Standalone Site" src="https://github.com/user-attachments/assets/24f0d948-f26e-403f-9280-2b3f3b3115b4" /> </br>
+
+12. Your SQL Server name and Database name should already be prefilled. Since I don't have a custom instance name, I am leaving it blank. Keep Service Broker Port as is: 4022. </br>
+<img width="722" height="687" alt="12  Name Server" src="https://github.com/user-attachments/assets/b070f5e8-22cb-4312-b0c2-d6b9025e2082" /> </br>
+
+13. Enter in a path for your SQL Server data file and log file. Since I did create separate drives for them at the beginning, I will be using those drives. </br>
+<img width="722" height="687" alt="13  File Path" src="https://github.com/user-attachments/assets/de9fc01b-9a68-4f71-99d2-24220d08f6d6" /> </br>
+
+14. We will install SMS provider on this machine, so nothing needs to be changed. </br>
+<img width="722" height="687" alt="14  SMS provider" src="https://github.com/user-attachments/assets/87fd7eae-c628-4b6b-bd48-95612e09b527" /> </br>
+
+15. Select **Configure the comunication method on each site system role**. </br>
+<img width="722" height="687" alt="15  Communication Settings" src="https://github.com/user-attachments/assets/542bd158-596b-4484-885e-b078779c3daa" /> </br>
+
+16. We will install both management point and distribution point on this server. </br>
+<img width="722" height="687" alt="16  Management_Distribution_Point" src="https://github.com/user-attachments/assets/52d303c7-067e-4409-ade1-6b148bb34966" /> </br>
+
+17. On **Diagnostic and Usage Data**, read and hit next. </br>
+<img width="722" height="687" alt="17  Data Usage" src="https://github.com/user-attachments/assets/2ebcd126-ff23-4cc1-8344-cfb56de57489" /> </br>
+
+18. We will have the installer setup a Service Point Connection. </br>
+<img width="722" height="687" alt="18  Service_Point_Connection" src="https://github.com/user-attachments/assets/e744a2c5-01c9-4863-afd7-ba4329ad021d" /> </br>
+
+19. Review summary and go through Prerequisite Check. </br>
+<img width="722" height="687" alt="19  Prerequitsite_Check" src="https://github.com/user-attachments/assets/881d253f-78a4-4f9f-862e-884576f92194" /> </br>
+
+20. Once the check has completed successfully, click on **Begin Install**. </br>
+<img width="722" height="687" alt="20  Install" src="https://github.com/user-attachments/assets/f9f39c47-e4a4-4dce-8f60-77774ab8eaf2" /> </br>
+<img width="722" height="687" alt="21  Success" src="https://github.com/user-attachments/assets/ef713c67-bb0b-4163-a9a3-e23499437020" /> </br>
 
 # Post Installation: PBRS
 
 With Configuration Manager now installed, there's some post-installation tasks that need to be done. First will be with PowerBI Report Services.
 
-1. Under **Service Account**, specify an account to run report server service.
-2. Under **Web Service URL**, I left everything as is and clicked on **Apply**. This should have created a Report Server Web Service URL.
-3. Under **Database**, click on **Change Database**.
-Then, select **Create a new report server database**.
-The required information should be autofilled. Click on **Test Connection** to make sure connection is successful.
-Leave the **Database** page as is, and continue on.
-For **Credentials**, we will leave as Service Credentials.
-Initiate and wait for the wizard to finish configuring the reporting database.
-5. In **Web Portal URL**, click **Apply** button to create a URL that can be used to access the web portal.
+1. Under **Service Account**, specify an account to run report server service. </br>
+<img width="722" height="687" alt="1  Service Account" src="https://github.com/user-attachments/assets/34a02643-123d-418a-a9b6-404b7541adb8" /> </br>
+
+2. Under **Web Service URL**, I left everything as is and clicked on **Apply**. This should have created a Report Server Web Service URL. </br>
+<img width="722" height="687" alt="2  Web_Service_URL" src="https://github.com/user-attachments/assets/d5510e89-e397-4f51-a63e-2e37b9d9919d" /> </br>
+
+3. Under **Database**, click on **Change Database**. </br>
+<img width="722" height="687" alt="3 1 Database" src="https://github.com/user-attachments/assets/40ce96b4-fc4e-43c8-8548-f99bb8faf2d5" /> </br>
+
+Then, select **Create a new report server database**. </br>
+<img width="722" height="687" alt="3 2 Database" src="https://github.com/user-attachments/assets/1a267021-02a1-4575-9b37-bdb15307f701" /> </br>
+
+The required information should be autofilled. Click on **Test Connection** to make sure connection is successful. </br>
+<img width="722" height="687" alt="3 3 Database" src="https://github.com/user-attachments/assets/6dd2091b-e646-4322-88f1-6ca181429d14" /> </br>
+
+Leave the **Database** page as is, and continue on. </br>
+<img width="722" height="687" alt="3 4 Database" src="https://github.com/user-attachments/assets/4f060a8a-a4a6-4ac0-870b-cd32d901d85e" /> </br>
+
+For **Credentials**, we will leave as Service Credentials. </br>
+<img width="722" height="687" alt="3 5 Database" src="https://github.com/user-attachments/assets/1f61ca6c-28fb-4e60-a332-9efd7c674c97" /> </br>
+
+Initiate and wait for the wizard to finish configuring the reporting database. </br>
+<img width="722" height="687" alt="3 6 Database" src="https://github.com/user-attachments/assets/cdb55d64-285d-4d13-91f5-7f45da230be0" /> </br>
+
+5. In **Web Portal URL**, click **Apply** button to create a URL that can be used to access the web portal. </br>
+<img width="722" height="687" alt="4  Web_Portal" src="https://github.com/user-attachments/assets/15f4bf6c-c37e-4a13-90a1-30adc65f2bbc" /> </br>
 
 # Post Installation: Configuration Manager Site System Roles
 
-1. In Microsoft Configuration Manager, navigate through Administration > Site Configuration > Servers and Site System Roles.
-2. Right-Click on your listed server and click on **Add Site System Roles**.
-3. I don't have a proxy set up, so I will be leaving the **Proxy** page blank.
-5. In **System Role Selection**, I selected the following roles: Endpoint Protection point, Fallback status point, Reporting services point, and Software update point.
-6. In **Software Update Point**, we will leave the WSUS port numbers as 8530 and 8531.
-7. **Proxy and Account Settings** page can be left blank, especially since WSUS is on the same system as well.
-8. In **Synchronization Source** page, leave everything as default.
-9. In **Synchronization Schedule** page, I will choose to enable synchronization on a schedule, every 1 day.
-10. I will be leaving everything in **Supersedence Rules** as default.
-11. In **WSUS Maintenance**, I will check to **Decline expired updates in WSUS according to supersedence rules** and **Remove obsolete updates from the WSUS database**.
-12. I will leave **Maximum Run Time** page as default.
-13. In **Update Files**, I will opt for **Download full fiels for all approved updates**.
-14. In **Classifications**, I chose the following: Crticial Updates, Definition Updates, Security Updates, Service Packs, Update Rollups, Updates, and Upgrades.
-15. In **Products**, I select Windows 7.
-16. In **Languages**, choose whatever languages you desire. I am leaving it only on English.
-17. I will leave **Fallback Status Point** as is.
-18. In **Reporting services point**, click on the **Verify** button to verify the site database server connection, and set an account that the reporting services will use to connect to the Configuration Manager site database.
-19. For **Cloud Protection Service**, I will choose **Basic membership**.
-20. Install and wait for completion.
+1. In Microsoft Configuration Manager, navigate through Administration > Site Configuration > Servers and Site System Roles. </br>
+<img width="722" height="687" alt="1  Open_Site_Roles" src="https://github.com/user-attachments/assets/5f6481cd-44a1-4043-9ff3-19a336f54eb9" /> </br>
+
+2. Right-Click on your listed server and click on **Add Site System Roles**. </br>
+<img width="722" height="687" alt="2  Right-Click" src="https://github.com/user-attachments/assets/c6b01e32-789c-4653-af81-f98b86d62d1b" /> </br>
+
+3. In the **General** page, select to **Use the site server's computer account to install this site system** and that the Active Directory forst and domain are correct. </br>
+<img width="722" height="687" alt="3  General Page" src="https://github.com/user-attachments/assets/66763e6b-5007-4b02-a6b9-a6b2e1fe4004" /> </br>
+
+4. I don't have a proxy set up, so I will be leaving the **Proxy** page blank. </br>
+<img width="722" height="687" alt="4  Proxy Page" src="https://github.com/user-attachments/assets/988ae13d-59d6-42d6-92fb-61c2d920a41b" /> </br>
+
+5. In **System Role Selection**, I selected the following roles: Endpoint Protection point, Fallback status point, Reporting services point, and Software update point. </br>
+<img width="722" height="687" alt="5  Role Selection" src="https://github.com/user-attachments/assets/d4ce0646-fad7-4cca-8766-500be1727699" /> </br>
+
+6. In **Software Update Point**, we will leave the WSUS port numbers as 8530 and 8531. </br>
+<img width="722" height="687" alt="6  Software Update Point" src="https://github.com/user-attachments/assets/64a47851-8465-4078-9417-222da6cb628c" /> </br>
+
+7. **Proxy and Account Settings** page can be left blank, especially since WSUS is on the same system as well. </br>
+<img width="722" height="687" alt="7  Proxy and Account Settings" src="https://github.com/user-attachments/assets/4e440512-a4b9-4bbe-a47b-53e49187066b" /> </br>
+
+8. In **Synchronization Source** page, leave everything as default. </br>
+<img width="722" height="687" alt="8  Synchronization Source" src="https://github.com/user-attachments/assets/573ee359-2550-4bac-a9c9-3ccdd3ebb766" /> </br>
+
+9. In **Synchronization Schedule** page, I will choose to enable synchronization on a schedule, every 1 day. </br>
+<img width="722" height="687" alt="9  Synchronization Schedule" src="https://github.com/user-attachments/assets/21a93b95-3a1e-4da5-aeca-b517db98e132" /> </br>
+
+10. I will be leaving everything in **Supersedence Rules** as default. </br>
+<img width="722" height="687" alt="10  Supersedence Rules" src="https://github.com/user-attachments/assets/76b36a5e-d0ed-4144-9dfe-cdb3a470cde6" /> </br>
+
+11. In **WSUS Maintenance**, I will check to **Decline expired updates in WSUS according to supersedence rules** and **Remove obsolete updates from the WSUS database**. </br>
+<img width="722" height="687" alt="11  WSUS Maintenance" src="https://github.com/user-attachments/assets/081d7063-d421-4eee-966e-3863bc4451be" /> </br>
+
+12. I will leave **Maximum Run Time** page as default. </br>
+<img width="722" height="687" alt="12  Maximum Run Time" src="https://github.com/user-attachments/assets/1e81f191-c931-4b6a-ae62-47f7ad478d01" /> </br>
+
+13. In **Update Files**, I will opt for **Download full fiels for all approved updates**. </br>
+<img width="722" height="687" alt="13  Update Files" src="https://github.com/user-attachments/assets/ba83302b-ef72-4744-b25b-9b00df33b4e4" /> </br>
+
+14. In **Classifications**, I chose the following: Crticial Updates, Definition Updates, Security Updates, Service Packs, Update Rollups, Updates, and Upgrades. </br>
+<img width="722" height="687" alt="14  Classifications" src="https://github.com/user-attachments/assets/cbc814fe-e078-4ff0-b307-c0f2cf5adbc6" /> </br>
+
+15. In **Products**, I select Windows 7. </br>
+<img width="722" height="687" alt="15  Products" src="https://github.com/user-attachments/assets/808decac-66ba-43c3-ac87-575e6e5278dd" /> </br>
+
+16. In **Languages**, choose whatever languages you desire. I am leaving it only on English. </br>
+<img width="722" height="687" alt="16  Languages" src="https://github.com/user-attachments/assets/ec977b37-2423-495c-9b91-89d6779cd19f" /> </br>
+
+17. I will leave **Fallback Status Point** as is. </br>
+<img width="722" height="687" alt="17  Fallback Status Point" src="https://github.com/user-attachments/assets/711cc453-7573-4b26-820b-886bb86865b9" /> </br>
+
+18. In **Reporting services point**, click on the **Verify** button to verify the site database server connection, and set an account that the reporting services will use to connect to the Configuration Manager site database. </br>
+<img width="722" height="687" alt="18  Reporting Service Point" src="https://github.com/user-attachments/assets/7358a397-a245-4a7b-9fd1-b1aba8223781" /> </br>
+
+19. For **Cloud Protection Service**, I will choose **Basic membership**. </br>
+<img width="722" height="687" alt="19  Cloud Protection Service" src="https://github.com/user-attachments/assets/f5ed9f20-d269-4eb7-a6f3-15e4337a2aef" /> </br>
+
+20. Install and wait for completion. </br>
+<img width="722" height="687" alt="20  Complete" src="https://github.com/user-attachments/assets/dd7ce82d-a2fc-44e7-82b5-149405b55e05" /> </br>
 
 # Post Installation: Client Push
 
 Client Push is the server-side installation method used to push the SCCM client onto target machines.
 
 1. Back in Configuration Manager, navigate to Administration > Site Configuration > Sites. Right-click your site, and click Client Installation Settings > Client Push Installation.
+<img width="1920" height="1080" alt="1  Client Push" src="https://github.com/user-attachments/assets/2d125a66-0805-4605-b649-e4648525d773" />
+
 2. Go to the **Accounts** tab, and click on the yellow star and click on **New Account**.
+<img width="1920" height="1080" alt="2  Accounts" src="https://github.com/user-attachments/assets/8b5392f8-11bc-4fa8-9d79-0fda86c786df" />
+
 3. For this, I created a separate domain account, aptly named sccmpush, to be used solely for pushing the Config Manager client. Then hit Apply.
+<img width="1920" height="1080" alt="3  Apply" src="https://github.com/user-attachments/assets/6e012a5f-193b-4523-be7c-09e7d94dc423" />
+
 4. We will now move to our Domain Controller. Here, we will create a Group Policy that will allow for our sccmpush account to be a local administrator on clients to be able to push the agent/console out to. My workstations in this domain will be added to a my Workstations OU, and is where I will apply this Group Policy to. Right-click the OU you will be applying the policy to, and click on **Create a GPO in this domain**.
+<img width="722" height="687" alt="4  GPO Creation" src="https://github.com/user-attachments/assets/02af6650-a93f-4833-83cf-ba446e5529ed" />
+
 5. Once the policy is created, right-click the policy and click on **Edit**.
+<img width="722" height="687" alt="5  Edit" src="https://github.com/user-attachments/assets/f7ace2c8-c3ba-49b7-b2be-d63275e9e7e9" />
+
 6. We will navigate the tree through this path: Computer Configuration > Preferences > Control Panel Settings > Local Users and Groups. Then, on the bottom of the window, click on **Standard**.
+<img width="722" height="687" alt="6  Navigate" src="https://github.com/user-attachments/assets/ccb25b60-a275-47e2-82fe-91ae94d40609" />
+
 7. Right-click on the right pane, click on **New** then click on **Local Group**.
+<img width="722" height="687" alt="7  Local Group" src="https://github.com/user-attachments/assets/5e30e532-9dbf-47ab-84a3-b2eeb882c82b" />
+
 8. Leave the **Action:** field as **Update**, and select **Administrators** for the **Group Name:** field. Then add our sccmpush account to **Members:** section.
+<img width="722" height="687" alt="8  Add Account" src="https://github.com/user-attachments/assets/606fd81d-40a1-4bfb-9416-30930427cfe7" />
+
 9. Next, in the same Group Policy editor window, go to Computer Configuration > Policies > Windows Settings > Security Settings > Windows Defender Firewall with Advanced Security. Then right-click **Inbound Rule** and click on **New Rule**.
+<img width="722" height="687" alt="9  Inbound Rule" src="https://github.com/user-attachments/assets/ab50acb5-2d81-4bd2-8045-e37f95364d6d" />
+
 10. Select **Predefined** and then select **Windows Management Instrumentation (WMI)** from the drop-down menu.
+<img width="722" height="687" alt="10  Predefined Option" src="https://github.com/user-attachments/assets/71cfd963-0852-4167-9a03-3228a970ef36" />
+
 11. Leave **Predefined Rule** as is, which by default, should have everything selected.
+<img width="722" height="687" alt="11  Predefined Rule" src="https://github.com/user-attachments/assets/4df4cfe2-0ac3-40f1-85ba-aef086da217d" />
+
 12. In **Action** page, we will select **Allow the connection** and then click **Finish**.
+<img width="722" height="687" alt="12  Finish" src="https://github.com/user-attachments/assets/5a9e4e05-c62a-492b-8735-a3fb9391cb8b" />
+
 13. Then create a new Inbound Rule again. We will select **Predefined:** again and select **File and Printer Sharing** from the drop-down menu.
+
 
 # Post Installation: Boundary + Boundary Groups
 
