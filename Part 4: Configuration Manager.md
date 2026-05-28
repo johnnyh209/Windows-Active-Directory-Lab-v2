@@ -1,6 +1,6 @@
 # Preparing Active Directory for SCCM
 
-We need to first create the System Management container in our Active Directory, which is used by SCCM to store configuraiton data that clients use to identify management points, software distribution points, and site boundaries.
+We need to first create the System Management container in our Active Directory, which is used by SCCM to store configuration data that clients use to identify management points, software distribution points, and site boundaries.
 
 1. To do this, on your domain controller, open **ADSI Edit**. </br>
 <img width="722" height="687" alt="1  Open ADSI Edit" src="https://github.com/user-attachments/assets/4c8ad5c0-d206-4ed1-b6ef-43442a578069" /> </br>
