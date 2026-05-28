@@ -135,19 +135,54 @@ We will now promote this Windows Server to be the Domain Controller of our lab e
 
 The final thing we need to configure on our Domain Controller is a DHCP server.
 
-1. Back on Server Manager, click on **Manage** then click on **Add Roles and Features**.
-2. Run through the **Add Roles and Features** wizard. When you get the **Select server roles** page, selet **DHCP Server**.
-3. Once DHCP is installed, click on the notification flag symbol and then click on **Complete DHCP configuration**.
-4. In the **Description** page, click **Next**.
-5. In the **Authorization** page, select the user credential that you will use to authorize the creation/configuration of this DHCP server.
-6. Once done, open the DHCP console. You can do so by clicking on the Search bar and typing in DHCP.
-7. In the left pane, expand your server and you should see IPv4 and IPv6. Right-click on IPv4 and select **New Scope**.
-8. Provide a name (and description if you want) for this new scope.
-9. Fill out the start and end IP address for the IP Address range. This means when this scope is active, this DHCP server will provide other nodes in the LAN an IP address within this range. The range will match that of the IP address I assigned to the LAN Adapter on my pfSense VM.
-10. Add any IP addresses you want to be excluded so that the DHCP server will not assign those. I have included the IP addresses of the LAN adapter on my pfSense VM and the IP address of my Domain Controller.
-11. Set the lease duration of an IP address. For example, if the duration is 8 days, a device is assigned an IP address and that assignment should last 8 days before the device has to renew or give up the IP address.
-12. Choose yes to configure the DHCP options now.
-13. For the default gateway, we want to provide it the IP address of our pfSense router/firewall.
-14. For the DNS server, makes sure the information automatically filled out points to your domain controller.
-15. You can leave the WINS Server page blank.
-16. Select to make scope active now.
+1. Back on Server Manager, click on **Manage** then click on **Add Roles and Features**. </br>
+<img width="722" height="687" alt="19  Domain Controller" src="https://github.com/user-attachments/assets/242fa054-aed9-44fe-a6e8-e2c5912c38b8" /> </br>
+
+2. Run through the **Add Roles and Features** wizard. When you get the **Select server roles** page, selet **DHCP Server**. </br>
+<img width="722" height="687" alt="20  DHCP" src="https://github.com/user-attachments/assets/8e5f0a23-f957-4ac9-9dc2-61b7683193d9" /> </br>
+
+3. Once DHCP is installed, click on the notification flag symbol and then click on **Complete DHCP configuration**. </br>
+<img width="722" height="687" alt="20 2 DHCP" src="https://github.com/user-attachments/assets/ad09b376-55a1-41c1-bef1-7d245454c400" /> </br>
+
+4. In the **Description** page, click **Next**. </br>
+<img width="722" height="687" alt="20 3 DHCP" src="https://github.com/user-attachments/assets/631f78d4-8c86-42a7-b2c3-0fe800484da2" /> </br>
+
+5. In the **Authorization** page, select the user credential that you will use to authorize the creation/configuration of this DHCP server. </br>
+<img width="722" height="687" alt="20 4 DHCP" src="https://github.com/user-attachments/assets/c7fd307b-cfa8-4e44-873d-c9d1a2dc1bf7" /> </br>
+
+6. Once done, open the DHCP console. You can do so by clicking on the Search bar and typing in DHCP. </br>
+<img width="722" height="687" alt="20 5 DHCP" src="https://github.com/user-attachments/assets/70549d2e-80eb-4020-a448-eaf720df57c3" /> </br>
+
+7. In the left pane, expand your server and you should see IPv4 and IPv6. Right-click on IPv4 and select **New Scope**. </br>
+<img width="722" height="687" alt="20 6 DHCP" src="https://github.com/user-attachments/assets/b8b429be-c5bb-4c6b-aa72-887659b94f5e" /> </br>
+
+8. Provide a name (and description if you want) for this new scope. </br>
+<img width="722" height="687" alt="20 7 DHCP" src="https://github.com/user-attachments/assets/2d26ba35-fffc-465b-833f-e7349fe6be11" /> </br>
+
+9. Fill out the start and end IP address for the IP Address range. This means when this scope is active, this DHCP server will provide other nodes in the LAN an IP address within this range. The range will match that of the IP address I assigned to the LAN Adapter on my pfSense VM. </br>
+<img width="722" height="687" alt="20 8 DHCP" src="https://github.com/user-attachments/assets/a282ee12-4ef7-46e1-a5b2-84e5d5a0d741" /> </br>
+
+10. Add any IP addresses you want to be excluded so that the DHCP server will not assign those. I have included the IP addresses of the LAN adapter on my pfSense VM and the IP address of my Domain Controller. </br>
+<img width="722" height="687" alt="20 9 DHCP" src="https://github.com/user-attachments/assets/7c754b45-43f0-4a1b-88ac-457ef76a7c26" /> </br>
+
+11. Set the lease duration of an IP address. For example, if the duration is 8 days, a device is assigned an IP address and that assignment should last 8 days before the device has to renew or give up the IP address. </br>
+<img width="722" height="687" alt="20 10 DHCP" src="https://github.com/user-attachments/assets/a956759d-9bf2-4d39-9187-aa4970bd4636" /> </br>
+
+12. Choose yes to configure the DHCP options now. </br>
+<img width="722" height="687" alt="20 11 DHCP" src="https://github.com/user-attachments/assets/b8207f1c-fbdb-4beb-9ed0-f71bb17db256" /> </br>
+
+13. For the default gateway, we want to provide it the IP address of our pfSense router/firewall. </br>
+<img width="722" height="687" alt="20 12 DHCP" src="https://github.com/user-attachments/assets/1e1a7974-34e4-4861-9551-d8fe32f40c91" /> </br>
+
+14. For the DNS server, makes sure the information automatically filled out points to your domain controller. </br>
+<img width="722" height="687" alt="20 13 DHCP" src="https://github.com/user-attachments/assets/2c32ea1e-623c-41b8-bb9b-679c84fb04e2" /> </br>
+
+15. You can leave the WINS Server page blank. </br>
+<img width="722" height="687" alt="20 14 DHCP" src="https://github.com/user-attachments/assets/a8516fb7-bedf-4529-af34-af6a0131bd93" /> </br>
+
+16. Select to make scope active now. </br>
+<img width="722" height="687" alt="20 15 DHCP" src="https://github.com/user-attachments/assets/e119af34-10f8-41d0-9020-338ea760fd06" /> </br>
+
+With that, your Domain Controller should now also act as a DHCP server. Clients connected to your Active Directory Domain should be receiving an IP address from within the IP Address Scope within this DHCP server. </br>
+<img width="722" height="687" alt="20 16 DHCP" src="https://github.com/user-attachments/assets/2c69c1a1-dbdc-4ffe-bf5b-65bc40022184" /> </br>
+
