@@ -2,45 +2,106 @@
 
 We need to first create the System Management container in our Active Directory, which is used by SCCM to store configuraiton data that clients use to identify management points, software distribution points, and site boundaries.
 
-1. To do this, on your domain controller, open **ADSI Edit**.
-2. Right-click ADSI Edit on the left pane and click on **Connect to...**.
-3. In the Conenction Settings window, keep everything as is and click the **OK** button.
-4. On the left pane of ADSI Edit, expand each subdirectory until you see **CN=System**. Right-Click it, and then click on New > Object.
-5. In the Create Object that opens as a result, select **Container** and click **Next**.
-6. In the **Value:** box, enter in **System Management**.
-7. Click **Finish**.
-8. Refresh ADSI Edit and you should now see a the System Management container under **CN=System**.
+1. To do this, on your domain controller, open **ADSI Edit**. </br>
+<img width="722" height="687" alt="1  Open ADSI Edit" src="https://github.com/user-attachments/assets/4c8ad5c0-d206-4ed1-b6ef-43442a578069" /> </br>
+
+2. Right-click ADSI Edit on the left pane and click on **Connect to...**. </br>
+<img width="722" height="687" alt="2  Connect To" src="https://github.com/user-attachments/assets/9c2fab53-030e-49e9-8b57-50d575c5a07c" /> </br>
+
+3. In the Conenction Settings window, keep everything as is and click the **OK** button. </br>
+<img width="722" height="687" alt="3  Connection Settings" src="https://github.com/user-attachments/assets/027fad2e-3aec-48a2-950e-32e19d02ae63" /> </br>
+
+4. On the left pane of ADSI Edit, expand each subdirectory until you see **CN=System**. Right-Click it, and then click on New > Object. </br>
+<img width="722" height="687" alt="4  New Object" src="https://github.com/user-attachments/assets/ee2f8eeb-2b3d-4126-a66a-1da1459d21f6" /> </br>
+
+5. In the Create Object that opens as a result, select **Container** and click **Next**. </br>
+<img width="722" height="687" alt="5  Select Container" src="https://github.com/user-attachments/assets/39339325-d622-4602-8aeb-6e295a7d8069" /> </br>
+
+6. In the **Value:** box, enter in **System Management**. </br>
+<img width="722" height="687" alt="6  System Management" src="https://github.com/user-attachments/assets/8d638876-7fe9-4a62-9c37-188e227c432d" /> </br>
+
+7. Click **Finish**. </br>
+<img width="722" height="687" alt="7  Click Finish" src="https://github.com/user-attachments/assets/b454bf3b-85bc-45f8-a74b-95306fb41170" /> </br>
+
+8. Refresh ADSI Edit and you should now see a the System Management container under **CN=System**. </br>
+<img width="722" height="687" alt="8  Container created" src="https://github.com/user-attachments/assets/8f95662e-7622-4b0e-ae58-1c44bb1145cd" /> </br>
 
 # Assigning Permissions to the System Management Container
 
-1. In ADSI Edit, right-click on **CN=System Management**, then click on **Properties**.
-2. Click on the **Security** tab and click on the **Add...** button.
-3. Click on **Object Types...** button, and select **Computers**.
-4. Type in the name of the system your SCCM server will be installed on and click **Check Names** button. It should find your device easily.
-5. Click on **Advanced** button.
-6. Select your server, and click **Edit**.
-7. In the **Applies to:** drop-down box, select **This object and all descendant objects**.
-8. Check the **Full control** box, and everything else should be selected as well.
-9. Click **Apply** and **OK**.
-10. Click **Apply** and **OK** again.
+1. In ADSI Edit, right-click on **CN=System Management**, then click on **Properties**. </br>
+<img width="722" height="687" alt="1  System Management Properties" src="https://github.com/user-attachments/assets/cde4ce80-172e-4324-9bcf-ab6b42de05d0" /> </br>
+
+2. Click on the **Security** tab and click on the **Add...** button. </br>
+<img width="722" height="687" alt="2  Click on add" src="https://github.com/user-attachments/assets/69c52f9e-5b6f-413e-a54a-c53b9162fa4a" /> </br>
+
+3. Click on **Object Types...** button, and select **Computers**. </br>
+<img width="722" height="687" alt="3  Object Types button" src="https://github.com/user-attachments/assets/feee1dbf-3f63-45a4-a8ba-26d294dc0cd1" /> </br>
+<img width="722" height="687" alt="3 1 Select computers" src="https://github.com/user-attachments/assets/3796a860-77bd-4614-b772-ee8628340c9b" /> </br>
+
+4. Type in the name of the system your SCCM server will be installed on and click **Check Names** button. It should find your device easily. </br>
+<img width="722" height="687" alt="4  Type in server name" src="https://github.com/user-attachments/assets/d93a91c5-2f9b-45c6-8990-9cbaa532680f" /> </br>
+
+5. Click on **Advanced** button. </br>
+<img width="722" height="687" alt="5  Click Advanced" src="https://github.com/user-attachments/assets/0a15c33c-564f-4db6-b8fa-843aae79f0b5" /> </br>
+
+6. Select your server, and click **Edit**. </br>
+<img width="722" height="687" alt="6  Select server and edit" src="https://github.com/user-attachments/assets/d8c808d9-b09b-43b4-a2c9-e38ec4016203" /> </br>
+
+7. In the **Applies to:** drop-down box, select **This object and all descendant objects**. </br>
+<img width="722" height="687" alt="7  Applies to box" src="https://github.com/user-attachments/assets/16968405-2541-4039-89b8-86def44b4a80" /> </br>
+
+8. Check the **Full control** box, and everything else should be selected as well. </br>
+<img width="722" height="687" alt="8  Full Control" src="https://github.com/user-attachments/assets/7ef8f539-304c-4f1b-b500-fec8515e02bf" /> </br>
+
+9. Click **Apply** and **OK**. </br>
+<img width="722" height="687" alt="9  Apply" src="https://github.com/user-attachments/assets/1351f623-8c4e-41ab-b1bd-c2acb73587e3" /> </br>
+
+10. Click **Apply** and **OK** again. </br>
+<img width="722" height="687" alt="10  Apply again" src="https://github.com/user-attachments/assets/1bcf7b30-0c28-4fb9-a498-d304967c13ef" /> </br>
 
 # Disk setup for Configuration Manager
 
-1. In my member server VM, named Server2025, I created 7 virtual disks
-2. In our member server VM, open Disk Management, right-click on each disk we created and bring them Online
-3. After bringing the disks online, you should now see that they say "Not Initialized." Right-click one of the disks, and then click on **Initialize Disk**. This opens an Initialize Disk window, allowing you to select which disks to initialize, and which partition style to use.
-4. For each disk, you will now need to create a Volume / format the disk with a file system.
-5. After creating a Volume for each disk, I rename them to help easily know what each disk is for. 
+1. In my member server VM, named Server2025, I created 7 virtual disks </br>
+<img width="722" height="687" alt="1  Disks Created" src="https://github.com/user-attachments/assets/991028a6-39f3-4441-bacc-c35685d9909b" /> </br>
+
+2. In our member server VM, open Disk Management, right-click on each disk we created and bring them Online </br>
+<img width="722" height="687" alt="2  Bring disks online" src="https://github.com/user-attachments/assets/c624de3a-c63f-4f51-a6e5-8f1d569362c0" /> </br>
+
+3. After bringing the disks online, you should now see that they say "Not Initialized." Right-click one of the disks, and then click on **Initialize Disk**. This opens an Initialize Disk window, allowing you to select which disks to initialize, and which partition style to use. </br>
+<img width="722" height="687" alt="3  Initialize all disks" src="https://github.com/user-attachments/assets/6c8fc583-56cb-4c67-aace-ed4d295a0b67" /> </br>
+<img width="722" height="687" alt="3 1 Initialize disks" src="https://github.com/user-attachments/assets/6532929c-9565-452a-9af4-7789dc82c1d6" /> </br>
+
+4. For each disk, you will now need to create a Volume / format the disk with a file system. </br>
+<img width="722" height="687" alt="4  Create Volume" src="https://github.com/user-attachments/assets/923c47a5-4c10-4904-a380-8889bcf59c78" /> </br>
+<img width="722" height="687" alt="4 1 Create Volume" src="https://github.com/user-attachments/assets/3811f341-3c17-4215-adad-d0c85f9cb485" /> </br>
+<img width="722" height="687" alt="4 2 Create Volume" src="https://github.com/user-attachments/assets/5b2e657c-c001-4435-8b5a-76080224f8bf" /> </br>
+<img width="722" height="687" alt="4 3 Create Volume" src="https://github.com/user-attachments/assets/1d0ebf12-49c8-4bbe-9ba3-d773292a83d9" /> </br>
+<img width="722" height="687" alt="4 4 Create Volume" src="https://github.com/user-attachments/assets/1998b9a1-7701-404d-84f8-d2de5636264e" /> </br>
+
+5. After creating a Volume for each disk, I rename them to help easily know what each disk is for. </br>
+<img width="722" height="687" alt="5  Rename Disk" src="https://github.com/user-attachments/assets/3d8e1795-6c09-4c24-9a3e-d52a8df115bb" /> </br>
+<img width="756" height="292" alt="6  All disks created" src="https://github.com/user-attachments/assets/9b577312-1e4b-4736-9bff-57ba994a5d77" /> </br>
+
 
 # NO_SMS_ON_DRIVE.SMS File
 
 Before continuing, we want to make sure to have a **NO_SMS_ON_DRIVE.SMS** file in any of our drives that we do not want any files from SCCM's Content Library to be copied to. 
 
-1. First, create a a text file on your C:\ drive
-2. Name the file as **NO_SMS_ON_DRIVE.SMS**.
-3. You will be prompted a warning about changing file extension. Click Yes to close the warning box and you should see the file's type change from Text Document to SMS File.
-4. I will be copying that file onto all of the other drives I created except for my **SCCM_ContentLibrary** drive.
-5. Create a folder named Database onto the root of every drive that will be used for the different databases that will be used in SCCM. So this would be in my **SCCM_SQL_MDF**, **SCCM_SQL_LDF**, **SCCM_TempDB**, and **SQL_WSUS_Database** drives.
+1. First, create a a text file on your C:\ drive </br>
+<img width="722" height="687" alt="7  No SMS file" src="https://github.com/user-attachments/assets/24e43d67-b0c5-41bd-9cec-df7b33baccef" /> </br>
+
+2. Name the file as **NO_SMS_ON_DRIVE.SMS**. </br>
+<img width="722" height="687" alt="7 1 Name the SMS file" src="https://github.com/user-attachments/assets/a1b61c25-6f88-47be-8e26-91b5ab6a72d6" /> </br>
+<img width="722" height="687" alt="7 2 Extension change warning" src="https://github.com/user-attachments/assets/cafc66cd-e7ad-481b-90ac-8b420ff73aa5" /> </br>
+
+3. You will be prompted a warning about changing file extension. Click Yes to close the warning box and you should see the file's type change from Text Document to SMS File. </br>
+<img width="722" height="687" alt="8  Database folder" src="https://github.com/user-attachments/assets/b118ba40-8a6d-40b4-93e6-3c74db0794db" /> </br>
+
+4. I will be copying that file onto all of the other drives I created except for my **SCCM_ContentLibrary** drive. </br>
+<img width="722" height="687" alt="9  Install IIS" src="https://github.com/user-attachments/assets/94c013e1-5a51-46da-bb9e-6ff8250de596" /> </br>
+
+5. Create a folder named Database onto the root of every drive that will be used for the different databases that will be used in SCCM. So this would be in my **SCCM_SQL_MDF**, **SCCM_SQL_LDF**, **SCCM_TempDB**, and **SQL_WSUS_Database** drives. </br>
+<img width="722" height="687" alt="9 1 Install IIS Success" src="https://github.com/user-attachments/assets/0ee58d1a-45d1-40bf-8682-150f666687ca" /> </br>
 
 # Installing IIS
 
@@ -59,13 +120,28 @@ Install-WindowsFeature Web-Static-Content,Web-Default-Doc,Web-Dir-Browsing,Web-H
 
 We will be using the Standard Developer edition of SQL Server 2025 as it's perfet for a non-production environment. Grab SQL Server [here](https://www.microsoft.com/en-us/evalcenter/download-microsoft-endpoint-configuration-manager).
 
-1. Launch your SQL Server installer, and select **Custom**.
-2. Specify the location that you want the media to be installed onto. Then wait for the install to finish.
-3. Click on **Installation** on the left pane, and then click on **New SQL Server standalone installation or add features to an existing installation**.
-4. Specify your free edition (if testing in a lab), or enter in billing information for the subscription option, or a product key if you have one.
-5. Read through and accept license agreement to continue.
-6. If you want, check the box to **Use Microsoft Update to check for updates**.
-7. Here, you will see a warning for Windows Firewall. We will need to ensure the necessary rules are in place to allow traffic through. The required ports are the following: 1433, 1434, 4022, and 135.
+1. Launch your SQL Server installer, and select **Custom**. </br>
+<img width="722" height="687" alt="1  SQL Server Install" src="https://github.com/user-attachments/assets/21c16b76-d664-4aed-a1dd-af52f649834d" /> </br>
+
+2. Specify the location that you want the media to be installed onto. Then wait for the install to finish. </br>
+<img width="722" height="687" alt="2  Install location" src="https://github.com/user-attachments/assets/884e4179-0053-4212-a502-04d06d50573e" /> </br>
+<img width="722" height="687" alt="2 1 Installing" src="https://github.com/user-attachments/assets/890de500-5565-49a5-8f1c-42311aa2c572" /> </br>
+
+3. Click on **Installation** on the left pane, and then click on **New SQL Server standalone installation or add features to an existing installation**. </br>
+<img width="722" height="687" alt="3  Installation" src="https://github.com/user-attachments/assets/ddd100bd-1ad9-492e-b281-7f7ffc404393" /> </br>
+
+4. Specify your free edition (if testing in a lab), or enter in billing information for the subscription option, or a product key if you have one. </br>
+<img width="722" height="687" alt="4  Edition" src="https://github.com/user-attachments/assets/db53c65b-d16c-403a-9298-a0a7e562f942" /> </br>
+
+5. Read through and accept license agreement to continue. </br>
+<img width="722" height="687" alt="5  License agreement" src="https://github.com/user-attachments/assets/cb861f7b-3e6d-4444-a799-f18c4b1a17a6" /> </br>
+
+6. If you want, check the box to **Use Microsoft Update to check for updates**. </br>
+<img width="722" height="687" alt="6  Updates" src="https://github.com/user-attachments/assets/cd9a6a2d-285c-48a5-8e7b-c654309ed895" /> </br>
+
+7. Here, you will see a warning for Windows Firewall. We will need to ensure the necessary rules are in place to allow traffic through. The required ports are the following: 1433, 1434, 4022, and 135. </br>
+<img width="722" height="687" alt="7  Install Rule" src="https://github.com/user-attachments/assets/ebf15293-e674-47ff-b542-9f1342a1e9fa" /> </br>
+
 8. Let's set up some firewall rules to allow traffic inbound through those ports. Open up PowerShell and run the following commands:
 ```
 New-NetFirewallRule -DisplayName “SQL Server” -Direction Inbound –Protocol TCP –LocalPort 1433 -Action allow
@@ -74,26 +150,56 @@ New-NetFirewallRule -DisplayName “SQL Database Management” -Direction Inboun
 New-NetFirewallRule -DisplayName “SQL Service Broker” -Direction Inbound –Protocol TCP –LocalPort 4022 -Action allow
 New-NetFirewallRule -DisplayName “SQL Debugger/RPC” -Direction Inbound –Protocol TCP –LocalPort 135 -Action allow
 ```
-9. You can enable Azure Extension. Since we won't be touching Azure, I leave it disabled.
-10. In Feature Selection, I am only enabled **Database Engine Services**.
-11. I will leave the instance name as default. Change it to your liking.
-12. Next, we will designate a service account for SQL Server Agent and SQL Server Database Engine. I have created an admin account for this, named SCCMAdmin. Make sure that your account you are using has been added to the Domain Admin and Administrators group. I also enabled Server Agent to have Automatic startup.
-13. In **Database Engine Configuration**, I will be keeping Authentication Mode as **Windows authentication mode**, and adding admin accounts I want to have unrestricted access to SQL Server. 
-For Data Directories, we will keep the directories as default.
-What we are changing is TempDB. We are changing the Autogrowth for both TempDB data files and log files from 64 MB to 256 MB, and changing the directory to our H:\ drive that we aptly named TempDB. 
-15. Install and wait for the process to complete.
+<img width="722" height="687" alt="8  Commands for ports enable" src="https://github.com/user-attachments/assets/faae062f-7883-4cf7-a853-2493b8b4b19d" /> </br>
+
+9. You can enable Azure Extension. Since we won't be touching Azure, I leave it disabled. </br>
+<img width="722" height="687" alt="9  Azure Extension" src="https://github.com/user-attachments/assets/0e2f2062-5d69-498e-a43b-1dc59eb5cb10" /> </br>
+
+10. In Feature Selection, I am only enabled **Database Engine Services**. </br>
+<img width="722" height="687" alt="10  Feature Selection" src="https://github.com/user-attachments/assets/2018d7bc-71cb-4a28-8cae-c0896a654c45" /> </br>
+
+11. I will leave the instance name as default. Change it to your liking. </br>
+<img width="722" height="687" alt="11  Instance Name" src="https://github.com/user-attachments/assets/74a02a88-8ff3-4379-9d8c-00c26effe2f5" /> </br>
+
+12. Next, we will designate a service account for SQL Server Agent and SQL Server Database Engine. I have created an admin account for this, named SCCMAdmin. Make sure that your account you are using has been added to the Domain Admin and Administrators group. I also enabled Server Agent to have Automatic startup. </br>
+<img width="722" height="687" alt="12  Service Accounts" src="https://github.com/user-attachments/assets/6e2c618b-1864-444c-b24a-9b8548db3917" /> </br>
+
+13. In **Database Engine Configuration**, I will be keeping Authentication Mode as **Windows authentication mode**, and adding admin accounts I want to have unrestricted access to SQL Server. </br>
+<img width="722" height="687" alt="13  Database Engine Configuration" src="https://github.com/user-attachments/assets/a778cbf1-3c72-4144-89e8-d55174d1fdbe" /> </br>
+
+For Data Directories, we will keep the directories as default. </br>
+<img width="722" height="687" alt="13 1 Data Directories" src="https://github.com/user-attachments/assets/0966321f-ccd1-4dd7-b4a6-06a986f0b2e4" /> </br>
+
+What we are changing is TempDB. We are changing the Autogrowth for both TempDB data files and log files from 64 MB to 256 MB, and changing the directory to our H:\ drive that we aptly named TempDB. </br> 
+<img width="722" height="687" alt="13 2 TempDB" src="https://github.com/user-attachments/assets/6fbd9974-8914-49bb-abaa-b463f18c2af5" /> </br>
+
+15. Install and wait for the process to complete. </br>
+<img width="722" height="687" alt="14  Install Success" src="https://github.com/user-attachments/assets/d839968d-f50b-4e32-b14a-74ddf175108d" /> </br>
 
 # Power BI Report Server
 
 With SQL Server 2025, Power BI Report Server (PBRS) replaces SQL Sever Reporting Services (SSRS). You can Grab PBRS [here](https://www.microsoft.com/en-us/download/details.aspx?id=105943&culture=en-us&country=us).
 
-1. Run the PBRS installer and select **Instal Power BI Report Server**.
-2. Choose your edition, or enter in a product key if you have one.
-3. Read and accept the license agreement to continue.
-4. Since we already installed the Database Engine earlier (when we installed SQL Server), simply click **Next**.
-5. Choose your installation path. I will be leaving it default.
-6. Install and wait for completion. Then click on **Configure report server**.
-7. Specify the Server Name and Report Server Instance, and connect to it. We will leave PBRS as it for now.
+1. Run the PBRS installer and select **Instal Power BI Report Server**. </br>
+<img width="722" height="687" alt="1  PBRS Installer" src="https://github.com/user-attachments/assets/f68a54e5-f117-4612-a4a5-b6a80a91e4f9" /> </br>
+
+2. Choose your edition, or enter in a product key if you have one. </br>
+<img width="722" height="687" alt="2  Edition selection" src="https://github.com/user-attachments/assets/2575c32e-8bcb-4abe-be19-83758a83aa80" /> </br>
+
+3. Read and accept the license agreement to continue. </br>
+<img width="722" height="687" alt="3  License Agreement" src="https://github.com/user-attachments/assets/d5a883f4-08cb-425a-add6-fded49cbff5a" /> </br>
+
+4. Since we already installed the Database Engine earlier (when we installed SQL Server), simply click **Next**. </br>
+<img width="722" height="687" alt="4  Database Engine" src="https://github.com/user-attachments/assets/bfa0233c-788f-4bd1-9ce2-aa1143064976" /> </br>
+
+5. Choose your installation path. I will be leaving it default. </br>
+<img width="722" height="687" alt="5  Installation location" src="https://github.com/user-attachments/assets/4a982606-77ea-4179-a81a-ac173631ac32" /> </br>
+
+6. Install and wait for completion. Then click on **Configure report server**. </br>
+<img width="722" height="687" alt="6  Finish Install" src="https://github.com/user-attachments/assets/84a4d7d1-0209-4139-a194-e2f285bfe958" /> </br>
+
+7. Specify the Server Name and Report Server Instance, and connect to it. We will leave PBRS as it for now. </br>
+<img width="722" height="687" alt="7  Server Name and Instance" src="https://github.com/user-attachments/assets/b195e5d9-adcd-4ff2-b811-1ccff113ae1c" /> </br>
 
 # Installing SQL Server Management Studio
 
