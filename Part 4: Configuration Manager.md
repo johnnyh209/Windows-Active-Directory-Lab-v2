@@ -548,43 +548,43 @@ Initiate and wait for the wizard to finish configuring the reporting database. <
 
 Client Push is the server-side installation method used to push the SCCM client onto target machines.
 
-1. Back in Configuration Manager, navigate to Administration > Site Configuration > Sites. Right-click your site, and click Client Installation Settings > Client Push Installation.
-<img width="1920" height="1080" alt="1  Client Push" src="https://github.com/user-attachments/assets/2d125a66-0805-4605-b649-e4648525d773" />
+1. Back in Configuration Manager, navigate to Administration > Site Configuration > Sites. Right-click your site, and click Client Installation Settings > Client Push Installation. </br>
+<img width="1920" height="1080" alt="1  Client Push" src="https://github.com/user-attachments/assets/2d125a66-0805-4605-b649-e4648525d773" /> </br>
 
-2. Go to the **Accounts** tab, and click on the yellow star and click on **New Account**.
-<img width="1920" height="1080" alt="2  Accounts" src="https://github.com/user-attachments/assets/8b5392f8-11bc-4fa8-9d79-0fda86c786df" />
+2. Go to the **Accounts** tab, and click on the yellow star and click on **New Account**. </br>
+<img width="1920" height="1080" alt="2  Accounts" src="https://github.com/user-attachments/assets/8b5392f8-11bc-4fa8-9d79-0fda86c786df" /> </br>
 
-3. For this, I created a separate domain account, aptly named sccmpush, to be used solely for pushing the Config Manager client. Then hit Apply.
-<img width="1920" height="1080" alt="3  Apply" src="https://github.com/user-attachments/assets/6e012a5f-193b-4523-be7c-09e7d94dc423" />
+3. For this, I created a separate domain account, aptly named sccmpush, to be used solely for pushing the Config Manager client. Then hit Apply. </br>
+<img width="1920" height="1080" alt="3  Apply" src="https://github.com/user-attachments/assets/6e012a5f-193b-4523-be7c-09e7d94dc423" /> </br>
 
-4. We will now move to our Domain Controller. Here, we will create a Group Policy that will allow for our sccmpush account to be a local administrator on clients to be able to push the agent/console out to. My workstations in this domain will be added to a my Workstations OU, and is where I will apply this Group Policy to. Right-click the OU you will be applying the policy to, and click on **Create a GPO in this domain**.
-<img width="722" height="687" alt="4  GPO Creation" src="https://github.com/user-attachments/assets/02af6650-a93f-4833-83cf-ba446e5529ed" />
+4. We will now move to our Domain Controller. Here, we will create a Group Policy that will allow for our sccmpush account to be a local administrator on clients to be able to push the agent/console out to. My workstations in this domain will be added to a my Workstations OU, and is where I will apply this Group Policy to. Right-click the OU you will be applying the policy to, and click on **Create a GPO in this domain**. </br>
+<img width="722" height="687" alt="4  GPO Creation" src="https://github.com/user-attachments/assets/02af6650-a93f-4833-83cf-ba446e5529ed" /> </br>
 
-5. Once the policy is created, right-click the policy and click on **Edit**.
-<img width="722" height="687" alt="5  Edit" src="https://github.com/user-attachments/assets/f7ace2c8-c3ba-49b7-b2be-d63275e9e7e9" />
+5. Once the policy is created, right-click the policy and click on **Edit**. </br>
+<img width="722" height="687" alt="5  Edit" src="https://github.com/user-attachments/assets/f7ace2c8-c3ba-49b7-b2be-d63275e9e7e9" /> </br>
 
-6. We will navigate the tree through this path: Computer Configuration > Preferences > Control Panel Settings > Local Users and Groups. Then, on the bottom of the window, click on **Standard**.
-<img width="722" height="687" alt="6  Navigate" src="https://github.com/user-attachments/assets/ccb25b60-a275-47e2-82fe-91ae94d40609" />
+6. We will navigate the tree through this path: Computer Configuration > Preferences > Control Panel Settings > Local Users and Groups. Then, on the bottom of the window, click on **Standard**. </br>
+<img width="722" height="687" alt="6  Navigate" src="https://github.com/user-attachments/assets/ccb25b60-a275-47e2-82fe-91ae94d40609" /> </br>
 
-7. Right-click on the right pane, click on **New** then click on **Local Group**.
-<img width="722" height="687" alt="7  Local Group" src="https://github.com/user-attachments/assets/5e30e532-9dbf-47ab-84a3-b2eeb882c82b" />
+7. Right-click on the right pane, click on **New** then click on **Local Group**. </br>
+<img width="722" height="687" alt="7  Local Group" src="https://github.com/user-attachments/assets/5e30e532-9dbf-47ab-84a3-b2eeb882c82b" /> </br>
 
-8. Leave the **Action:** field as **Update**, and select **Administrators** for the **Group Name:** field. Then add our sccmpush account to **Members:** section.
-<img width="722" height="687" alt="8  Add Account" src="https://github.com/user-attachments/assets/606fd81d-40a1-4bfb-9416-30930427cfe7" />
+8. Leave the **Action:** field as **Update**, and select **Administrators** for the **Group Name:** field. Then add our sccmpush account to **Members:** section. </br>
+<img width="722" height="687" alt="8  Add Account" src="https://github.com/user-attachments/assets/606fd81d-40a1-4bfb-9416-30930427cfe7" /> </br>
 
-9. Next, in the same Group Policy editor window, go to Computer Configuration > Policies > Windows Settings > Security Settings > Windows Defender Firewall with Advanced Security. Then right-click **Inbound Rule** and click on **New Rule**.
-<img width="722" height="687" alt="9  Inbound Rule" src="https://github.com/user-attachments/assets/ab50acb5-2d81-4bd2-8045-e37f95364d6d" />
+9. Next, in the same Group Policy editor window, go to Computer Configuration > Policies > Windows Settings > Security Settings > Windows Defender Firewall with Advanced Security. Then right-click **Inbound Rule** and click on **New Rule**. </br>
+<img width="722" height="687" alt="9  Inbound Rule" src="https://github.com/user-attachments/assets/ab50acb5-2d81-4bd2-8045-e37f95364d6d" /> </br>
 
-10. Select **Predefined** and then select **Windows Management Instrumentation (WMI)** from the drop-down menu.
-<img width="722" height="687" alt="10  Predefined Option" src="https://github.com/user-attachments/assets/71cfd963-0852-4167-9a03-3228a970ef36" />
+10. Select **Predefined** and then select **Windows Management Instrumentation (WMI)** from the drop-down menu. </br>
+<img width="722" height="687" alt="10  Predefined Option" src="https://github.com/user-attachments/assets/71cfd963-0852-4167-9a03-3228a970ef36" /> </br>
 
-11. Leave **Predefined Rule** as is, which by default, should have everything selected.
-<img width="722" height="687" alt="11  Predefined Rule" src="https://github.com/user-attachments/assets/4df4cfe2-0ac3-40f1-85ba-aef086da217d" />
+11. Leave **Predefined Rule** as is, which by default, should have everything selected. </br>
+<img width="722" height="687" alt="11  Predefined Rule" src="https://github.com/user-attachments/assets/4df4cfe2-0ac3-40f1-85ba-aef086da217d" /> </br>
 
-12. In **Action** page, we will select **Allow the connection** and then click **Finish**.
-<img width="722" height="687" alt="12  Finish" src="https://github.com/user-attachments/assets/5a9e4e05-c62a-492b-8735-a3fb9391cb8b" />
+12. In **Action** page, we will select **Allow the connection** and then click **Finish**. </br>
+<img width="722" height="687" alt="12  Finish" src="https://github.com/user-attachments/assets/5a9e4e05-c62a-492b-8735-a3fb9391cb8b" /> </br>
 
-13. Then create a new Inbound Rule again. We will select **Predefined:** again and select **File and Printer Sharing** from the drop-down menu.
+13. Then create a new Inbound Rule again. We will select **Predefined:** again and select **File and Printer Sharing** from the drop-down menu. </br>
 
 
 # Post Installation: Boundary + Boundary Groups
