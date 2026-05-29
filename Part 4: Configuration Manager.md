@@ -634,13 +634,31 @@ Configuring this will allow SCCM to discover clients in our site.
 
 # Post Installation: Client Settings
 
-1. In Configuration Manager, go to Administration > Client Settings. Then in the ribbon on top, click on **Create Custom Client Device Settings**.
-2. In the Create Custom Client Device Settings wizard, I added the following: Client Policy, Computer Agent, Endpoint Protection, Hardware Inventory, Software Center, and Software Updates.
-3. In Client Policy, I changed the polling interval from 60 minutes to 15 minutes, and kept other settings as default.
-4. For Computer Agent, I added an organization name to be displayed in Software Center and changed the various reminder intervals as follows:
-5. In Endpoint Protection, turn on **Manage Endpoint Protection client on client computers** which should enable the other settings; keep other settings as default.
-6. For Hardware Inventory, I kept everything as default.
-7. In Software Center, I selected Yes for **Select these new settings to specify company information**.
-Then, click on the Customize button. Edit whatever you like. I added in a company name
-8. In Software Updates, I left everything as default.
-9. Once done, click OK to confirm everything and have your custom client settings created.
+1. In Configuration Manager, go to Administration > Client Settings. Then in the ribbon on top, click on **Create Custom Client Device Settings**. </br>
+<img width="1920" height="1080" alt="1  Custom Client Settings" src="https://github.com/user-attachments/assets/cd6dc33d-42a4-4507-bcd1-c8ad5982ef17" /> </br>
+
+2. In the Create Custom Client Device Settings wizard, I added the following: Client Policy, Computer Agent, Endpoint Protection, Hardware Inventory, Software Center, and Software Updates. </br>
+<img width="1920" height="1080" alt="2  Settings Added" src="https://github.com/user-attachments/assets/1c3dbebb-df99-423a-b968-cd8d9d92e9d2" /> </br>
+
+3. In Client Policy, I changed the polling interval from 60 minutes to 15 minutes, and kept other settings as default. </br>
+<img width="1920" height="1080" alt="3  Client Policy" src="https://github.com/user-attachments/assets/a4858d38-d365-48a3-9da5-f5c95bdb0dce" /> </br>
+
+4. For Computer Agent, I added an organization name to be displayed in Software Center and changed the various reminder intervals as follows: </br>
+<img width="1920" height="1080" alt="4  Computer Agent" src="https://github.com/user-attachments/assets/4cff26da-7242-492e-939a-98933cdea7a1" /> </br>
+
+5. In Endpoint Protection, turn on **Manage Endpoint Protection client on client computers** which should enable the other settings; keep other settings as default. </br>
+<img width="1920" height="1080" alt="5  Endpoint Protection" src="https://github.com/user-attachments/assets/912fa502-4a79-474b-a0bb-11a100483808" /> </br>
+
+6. For Hardware Inventory, I kept everything as default. </br>
+<img width="1920" height="1080" alt="6  Hardware Inventory" src="https://github.com/user-attachments/assets/8ad52bac-8028-4776-98c7-c5544a9ed949" /> </br>
+
+7. In Software Center, I selected Yes for **Select these new settings to specify company information**. </br>
+<img width="1920" height="1080" alt="7 1 Software Center" src="https://github.com/user-attachments/assets/49717e28-b10c-42fd-ab2d-21aaba5741f6" /> </br>
+
+Then, click on the Customize button. Edit whatever you like. I added in a company name. </br>
+<img width="1920" height="1080" alt="7 2 Software Center" src="https://github.com/user-attachments/assets/d97f4750-41f6-4633-99c2-f805e90a4ab1" /> </br>
+
+8. In Software Updates, I left everything as default. </br>
+<img width="1920" height="1080" alt="8  Software Updates" src="https://github.com/user-attachments/assets/98c60a3b-39df-4489-8dbf-4f3619023bda" /> </br>
+
+9. Once done, click OK to confirm everything and have your custom client settings created. </br>
