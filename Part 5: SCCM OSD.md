@@ -93,3 +93,13 @@ In order for PXE boot to work successfully, there's one thing that needs to be d
 5. Now go to Software Library > Operating Systems > Boot Images. Right-click your boot image and click on **Properties**.
 6. Go to the **Data Source** tab, and make sure that the box is checked for **Deploy this boot image from the PXE-enable distribution point**.
 
+# Create Boot Media
+
+1. In Configuration Manager, go to Software Library > Operating Systems > Task Sequences. Right-click on **Task Sequences** and click on **Create Task Sequence**.
+2. In **Select the type of media**, select **Bootable media**.
+3. In **Select how media finds a management point**, select **Dynamic media**.
+4. In **Specify the media type**, select **CD/DVD set** and then specify a path and name for the output file.
+5. In **Security** page, check the box for **Enable unkown computer support**. Next, decide whether you want to protect the media with a password or not, and then select to **Create a self-signed media certificate**. Edit the dates if needed.
+6. In **Boot Image** page, select your boot image, distribution point, and the associated management points.
+7. In **Customization**, I left blank.
+8. Review the summary and create the boot media.
