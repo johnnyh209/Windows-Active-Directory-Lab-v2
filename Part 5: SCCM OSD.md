@@ -11,7 +11,7 @@ Adding this as a reminder of what my SCCM server VM's disk setup is like: </br>
 5. Add a **$** sign to the end of the share name. This will hide the folder from casual access.
 6. Then click on **Permissions**. For the Everyone group, give it **Full Control**. Then apply all changes made.
 
-# Getting install.wim
+# Adding Operating System to Configuration Manager
 
 1. The Windows 11 Business iso comes with various versions of Windows. For this lab, we want only the Enterprise edition. To do so, first extract your Windows 11 Business Edition iso.
 2. Open the **sources** folder and look for the **install.wim** file.
@@ -23,3 +23,9 @@ Adding this as a reminder of what my SCCM server VM's disk setup is like: </br>
 8. Type in a name (and version and comment if desired).
 9. Import and wait for the process to complete.
 10. Back in the **Operating System Images** page on Configuration Manager, you should see the OS you imported now listed.
+11. Right-Click on the listed operating system and click on **Distribute Content**.
+12. In **Review selected content** page, click Next.
+13. In **Specify the content destination**, click on the **Add** button then click on **Distribution Point**.
+14. Select your distribution point and click **OK**.
+15. With the distribution point selectd, press **Next**.
+16. Review the summary and complete the task.
