@@ -82,3 +82,14 @@ I want my Windows image to be deployed with VLC Media. So let's first create a p
 7. In **Disbtribution Points**, I checked both boxes.
 8. Review the summary, and finish the task.
 
+# PXE Boot
+
+In order for PXE boot to work successfully, there's one thing that needs to be done in Configuration Manager.
+
+1. In Configuration Manager, go to Administration > Site Configuration. Then click on **Servers and Site System Roles**.
+2. Select the server that has the distribution point role. I only have one, which is my SCCM server. Then on the bottom, under **Site System Roles**, right click on **Distribution point** and click on **Properties**.
+3. Go to the **PXE** tab, and then check the box for **Enable PXE support for clients**.
+4. This then makes the rest of the page editable. Check the boxes for **Allow this distribution point to respond to incoming PXE requests**, **Enable unknown computer support**, and **Enable a PXE responder without Windows Deployment Service**. Then provide a password for when computers use PXE boot. Go ahead and apply all changes and close the Properties window.
+5. Now go to Software Library > Operating Systems > Boot Images. Right-click your boot image and click on **Properties**.
+6. Go to the **Data Source** tab, and make sure that the box is checked for **Deploy this boot image from the PXE-enable distribution point**.
+
