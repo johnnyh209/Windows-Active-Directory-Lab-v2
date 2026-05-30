@@ -69,5 +69,16 @@ I want my Windows image to be deployed with VLC Media. So let's first create a p
 15. You should now see your task sequence listed. Right-click your task sequence, and click on **Edit**.
 16. In the left pane, under **Setup Operating System**, click on **Setup Windows and Configuration Manager** to highlight it. Then, on the top of the left pane, click on Add > Software > Install Package.
 17. This will add a new sequence. Give the sequence a name, then select a package to be installed during the imaging process. Then click Apply, and OK.
+18. Much like we have already done when we added the operating system and created an application package above, we need to distribute this task sequence to our distribution point.
 
+# Deploy Task Sequence
+
+1. Right-click on the task sequence and click on **Deploy**.
+2. For the **Collection** field, click on Browse and select **All Unknown Computers**.
+3. For the **Make Available to the following** field, select **Only media and PXE**.
+4. For **Scheduling**, leave as is and continue on.
+5. In **User Experience**, no changes were made. Leave as is and continue on.
+6. In **Alerts**, you can leave as is as well.
+7. In **Disbtribution Points**, I checked both boxes.
+8. Review the summary, and finish the task.
 
