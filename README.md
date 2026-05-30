@@ -13,3 +13,5 @@ Part 2. Setting up Windows Server Domain Controller: I install and configure Win
 Part 3. Member Server Setup: I wanted to set up a server that would handle heavy workloads (such as file sharing, application hosting) rather than having everything on my domain controller like I did in the first iteration of the lab. This server, currently, is where I am hosting my SCCM set up.
 
 Part 4. Configuration Manager: I installed and configured a Configuration Manager/SCCM instance on my member server. The goal is to both deploy applications to regular Windows 11 clients in the domain, and to setup a custom Windows image for Operating System Deployment (OSD).
+
+Part 5. SCCM OSD: I import a Windows 11 Enterprise iso, create an application package to be installed during device imaging, and created a task sequence for device imaging.
